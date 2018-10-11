@@ -19,7 +19,7 @@ const styles = theme => ({
 const App = ({ classes }) => (
   <Fragment>
     <CssBaseline />
-    <AppHeader />
+    {/* <AppHeader /> */}
     <main className={classes.main}>
       <Home />
     </main>
