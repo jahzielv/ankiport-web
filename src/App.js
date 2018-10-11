@@ -1,27 +1,3 @@
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import Button from "@material-ui/core/Button"
-// import './App.css';
-
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           Hello Jahziel!
-//         </p>
-//         <Button variant="contained" color="primary">Yeet</Button>
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
 import React, { Fragment } from 'react';
 import {
   CssBaseline,
