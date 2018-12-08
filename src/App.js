@@ -6,6 +6,7 @@ import {
 
 import AppHeader from './components/AppHeader';
 import Home from './pages/Home';
+import Footer from "./components/Footer";
 
 const styles = theme => ({
   main: {
@@ -23,6 +24,7 @@ const App = ({ classes }) => (
     <main className={classes.main}>
       <Home />
     </main>
+    <Footer />
   </Fragment>
 );
 
