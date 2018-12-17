@@ -14,12 +14,16 @@ import PropTypes from 'prop-types';
 const styles = {
     root: {
         padding: "10px",
-        border: "20px",
+        border: "50px",
         // justify: "center",
         // alignContent: "center",
         // alignItems: "center",
         // direction: "column"
     },
+    buttonStyle: {
+        padding: "50px",
+        border: "20px"
+    }
 };
 
 
@@ -36,9 +40,11 @@ function InputArea(props) {
                 margin="normal"
                 variant="outlined"
             />
-            <Button id="buttonPort" variant="extendedFab" color="primary" size="large">
-                Make a deck!
-        </Button>
+            <Button className={classes.buttonStyle} id="buttonPort" variant="extendedFab" color="primary" size="large">
+                <Typography variant="h5">
+                    Make a deck!
+                </Typography>
+            </Button>
         </Grid>
     );
 }
