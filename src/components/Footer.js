@@ -1,6 +1,5 @@
 import React from "react";
 import { withStyles, Typography } from "@material-ui/core";
-import { height } from "window-size";
 
 const styles = theme => (
     {

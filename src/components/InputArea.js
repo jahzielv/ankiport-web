@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Typography,
     Button,
     Grid,
     TextField
@@ -13,16 +12,8 @@ import PropTypes from 'prop-types';
 
 const styles = {
     root: {
-        padding: "10px",
-        border: "50px",
-        // justify: "center",
-        // alignContent: "center",
-        // alignItems: "center",
-        // direction: "column"
-    },
-    buttonStyle: {
-        padding: "50px",
-        border: "20px"
+        paddingTop: "40px",
+
     }
 };
 
@@ -31,20 +22,25 @@ function InputArea(props) {
     const { classes, children, className, ...other } = props;
 
     return (
-        <Grid container className={classes.root} direction="column">
-            <TextField
-                id="outlined-with-placeholder"
-                label="Quizlet Deck URL"
-                placeholder=""
-                className={classes.textField}
-                margin="normal"
-                variant="outlined"
-            />
-            <Button className={classes.buttonStyle} id="buttonPort" variant="extendedFab" color="primary" size="large">
-                <Typography variant="h5">
-                    Make a deck!
-                </Typography>
-            </Button>
+        <Grid container spacing={40} className={classes.root} direction="column">
+
+            <Grid container item direction="row" justify="left" alignItems="center" spacing={40}>
+                <TextField
+                    id="outlined-with-placeholder"
+                    label="Quizlet Deck URL"
+                    placeholder=""
+                    className={classes.textField}
+                    margin="normal"
+                    variant="outlined"
+                    // fullWidth
+                    style={{ width: "1000px" }}
+                />
+                <div style={{ paddingLeft: "30px" }}>
+                    <Button id="buttonPort" variant="extendedFab" color="primary" size="large">
+                        Make a deck!
+                    </Button>
+                </div>
+            </Grid>
         </Grid>
     );
 }
