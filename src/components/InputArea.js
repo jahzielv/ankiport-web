@@ -4,51 +4,51 @@ import {
     Grid,
     TextField
 } from '@material-ui/core';
-import classNames from "classnames";
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import fetch from "node-fetch";
+const saveAs = require("file-saver");
 
+export class InputArea extends React.Component {
 
-
-const styles = {
-    root: {
-        paddingTop: "40px",
-
+    constructor(props) {
+        super(props);
     }
-};
+
+    state = {
+        id: ""
+    }
+
+    deckButtonClick = () => {
+        fetch(`http://665b146b.ngrok.io/port?setID=205778706`)
+            .then(response => response.blob())
+            .then(blob => saveAs(blob, 'test.apkg'));
+    }
 
 
-function InputArea(props) {
-    const { classes, children, className, ...other } = props;
+    render() {
 
-    return (
-        <Grid container spacing={40} className={classes.root} direction="column">
+        return (
+            <Grid container spacing={40} style={{ paddingTop: "40px" }} direction="column" >
 
-            <Grid container item direction="row" justify="left" alignItems="center" spacing={40}>
-                <TextField
-                    id="outlined-with-placeholder"
-                    label="Quizlet Deck URL"
-                    placeholder=""
-                    className={classes.textField}
-                    margin="normal"
-                    variant="outlined"
-                    // fullWidth
-                    style={{ width: "1000px" }}
-                />
-                <div style={{ paddingLeft: "30px" }}>
-                    <Button id="buttonPort" variant="extendedFab" color="primary" size="large">
-                        Make a deck!
+                <Grid container item direction="row" justify='flex-start' alignItems="center" spacing={40}>
+                    <TextField
+                        id="outlined-with-placeholder"
+                        label="Quizlet Deck URL"
+                        placeholder=""
+                        margin="normal"
+                        variant="outlined"
+                        style={{ width: "1000px" }}
+                        onChange={e => { this.setState({ id: e.target.value }) }}
+                    />
+                    <div style={{ paddingLeft: "30px" }}>
+                        <Button id="buttonPort" variant="extendedFab" color="primary" size="large" onClick={this.deckButtonClick}>
+                            Make a deck!
                     </Button>
-                </div>
-            </Grid>
-        </Grid>
-    );
+                    </div>
+                </Grid>
+            </Grid >
+        );
+    }
 }
 
-InputArea.propTypes = {
-    children: PropTypes.node,
-    classes: PropTypes.object.isRequired,
-    className: PropTypes.string,
-};
 
-export default withStyles(styles)(InputArea);
+export default InputArea;
