@@ -18,7 +18,7 @@ export class InputArea extends React.Component {
     }
 
     deckButtonClick = () => {
-        fetch(`http://665b146b.ngrok.io/port?setID=205778706`)
+        fetch(`http://665b146b.ngrok.io/port?setID=${this.state.id}`)
             .then(response => response.blob())
             .then(blob => saveAs(blob, 'test.apkg'));
     }
