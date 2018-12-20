@@ -1,9 +1,7 @@
 import React from 'react';
 import {
-  Typography,
-  Button,
-  Grid,
-  TextField
+    Typography,
+    Grid,
 } from '@material-ui/core';
 import classNames from "classnames";
 import { withStyles } from '@material-ui/core/styles';
@@ -12,35 +10,34 @@ import Input from "../components/InputArea";
 
 
 const styles = {
-  root: {
-    background: "light-grey",
-    color: 'white',
-    padding: "10px",
-    justify: "center",
-    // alignContent: "center",
-    alignItems: "flex-start",
-    direction: "column"
-  },
+    root: {
+        background: "light-grey",
+        color: 'white',
+        padding: "10px",
+        justify: "center",
+        alignItems: "flex-start",
+        direction: "column"
+    },
 };
 
 
 function HomePage(props) {
-  const { classes, children, className, ...other } = props;
+    const { classes } = props;
 
-  return (
-    <Grid container className={classNames(classes.root)}>
-      <Grid container className={classNames(classes.root)} direction="column" id="gridContent">
-        <Typography variant="h1" align="center">Ankiport</Typography>
-        <Input/>
-      </Grid>
-    </Grid>
-  );
+    return (
+        <Grid container className={classNames(classes.root)}>
+            <Grid container className={classNames(classes.root)} direction="column" id="gridContent">
+                <Typography variant="h1" align="center">Ankiport</Typography>
+                <Input />
+            </Grid>
+        </Grid>
+    );
 }
 
 HomePage.propTypes = {
-  children: PropTypes.node,
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
+    children: PropTypes.node,
+    classes: PropTypes.object.isRequired,
+    className: PropTypes.string,
 };
 
 export default withStyles(styles)(HomePage);
