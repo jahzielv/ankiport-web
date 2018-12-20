@@ -19,7 +19,7 @@ export class InputArea extends React.Component {
 
     deckButtonClick = () => {
         let filename;
-        fetch(`http://3dea9356.ngrok.io/port?setID=${this.state.id}`)
+        fetch(`https://ankiport-api.appspot.com/port?setID=${this.state.id}`)
 
             .then(response => {
                 response.headers.forEach(console.log);
