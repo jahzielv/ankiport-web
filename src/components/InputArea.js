@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Button,
     Grid,
-    TextField
+    TextField,
+    Snackbar
 } from '@material-ui/core';
 import fetch from "node-fetch";
 const saveAs = require("file-saver");
@@ -14,23 +15,36 @@ export class InputArea extends React.Component {
     }
 
     state = {
-        id: ""
+        id: "",
+        portErr: false
     }
 
     deckButtonClick = () => {
         let filename;
         fetch(`https://ankiport-api.appspot.com/port?setID=${this.state.id}`)
 
-            .then(response => {
+            .then((response) => {
                 filename = response.headers.get("x-filename");
-                return response.blob();
+                if (filename === null) {
+                    return Promise.reject("404 error - invalid set ID number");
+                } else {
+                    return response.blob();
+                }
             })
-            .then(blob => saveAs(blob, filename));
+            .then((blob) => saveAs(blob, filename))
+            .catch((err) => {
+                console.log(err);
+                this.setState({ portErr: true });
+            });
+    }
+
+    handleClose = () => {
+        this.setState({ portErr: false });
     }
 
 
     render() {
-
+        const { portErr } = this.state;
         return (
             <Grid container spacing={40} style={{ paddingTop: "40px" }} direction="column" >
 
@@ -50,6 +64,16 @@ export class InputArea extends React.Component {
                     </Button>
                     </div>
                 </Grid>
+                <Snackbar
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    open={portErr}
+                    autoHideDuration={4000}
+                    onClose={this.handleClose}
+                    ContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    message={<span id="message-id">We couldn't find that Quizlet 😔 Please try again!</span>}
+                />
             </Grid >
         );
     }
