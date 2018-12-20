@@ -1,15 +1,12 @@
 import React from 'react';
 import {
     Typography,
-    Button,
     Grid,
-    TextField
 } from '@material-ui/core';
 import classNames from "classnames";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import Input from "../components/InputArea";
-import Footer from "../components/Footer";
 
 
 const styles = {
@@ -18,7 +15,6 @@ const styles = {
         color: 'white',
         padding: "10px",
         justify: "center",
-        // alignContent: "center",
         alignItems: "flex-start",
         direction: "column"
     },
@@ -26,7 +22,7 @@ const styles = {
 
 
 function HomePage(props) {
-    const { classes, children, className, ...other } = props;
+    const { classes } = props;
 
     return (
         <Grid container className={classNames(classes.root)}>

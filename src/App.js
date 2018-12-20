@@ -4,9 +4,9 @@ import {
   withStyles,
 } from '@material-ui/core';
 
-import AppHeader from './components/AppHeader';
 import Home from './pages/Home';
 import Footer from "./components/Footer";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const styles = theme => ({
   main: {
@@ -17,15 +17,23 @@ const styles = theme => ({
   },
 });
 
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+  },
+});
+
 const App = ({ classes }) => (
-  <Fragment>
-    <CssBaseline />
-    {/* <AppHeader /> */}
-    <main className={classes.main}>
-      <Home />
-    </main>
-    <Footer />
-  </Fragment>
+  <MuiThemeProvider theme={theme}>
+    <Fragment>
+      <CssBaseline />
+      {/* <AppHeader /> */}
+      <main className={classes.main}>
+        <Home />
+      </main>
+      <Footer />
+    </Fragment>
+  </MuiThemeProvider>
 );
 
 export default withStyles(styles)(App);
