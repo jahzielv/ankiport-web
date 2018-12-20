@@ -22,9 +22,7 @@ export class InputArea extends React.Component {
         fetch(`https://ankiport-api.appspot.com/port?setID=${this.state.id}`)
 
             .then(response => {
-                response.headers.forEach(console.log);
                 filename = response.headers.get("x-filename");
-                console.log("yote " + filename);
                 return response.blob();
             })
             .then(blob => saveAs(blob, filename));
