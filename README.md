@@ -1,6 +1,6 @@
 <h1><a href="https://ankiport-app.appspot.com/"><img src="./public/res/aplogo.png" alt="drawing" width="100"/></a>Ankiport</h1>
 
-An app that lets you convert from Quizlet to Anki. Version 0.0.1 is now live at https://ankiport-app.appspot.com/! 
+An app that lets you convert from Quizlet to Anki.
 
 Just plug in a valid Quizlet URL, click `Make a Deck!`, and it'll download an Anki `.apkg` with all the text content transferred over.
 
