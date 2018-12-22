@@ -1,4 +1,4 @@
-<h1><a href="https://ankiport-app.appspot.com/"><img src="./public/res/aplogo.png" alt="drawing" width="100"/></a>Ankiport</h1>
+<h1><a href="https://ankiport.com/"><img src="./public/res/aplogo.png" alt="drawing" width="100"/></a>Ankiport</h1>
 
 An app that lets you convert from Quizlet to Anki.
 
