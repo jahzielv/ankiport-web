@@ -1,58 +1,52 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Typography } from "@material-ui/core";
 
-export class AboutSection extends React.Component {
+export const AboutSection = () => {
 
-    state = {
-    }
 
-    render() {
-        return (
-            <div>
-                <p> <Typography variant="h4">Hello there</Typography></p>
-                <p><Typography variant="subtitle1">Wahoo</Typography></p>
-                <p><Typography variant="body1">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ultricies diam nec dapibus. Maecenas maximus ex eu consequat tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu tempus ex, vitae cursus sapien. Sed rhoncus ut magna sollicitudin consectetur. Vivamus dapibus nibh tellus, sit amet vestibulum augue dapibus pretium.
-    
-    Aliquam nulla mauris, rutrum id dui a, faucibus semper nunc. Integer interdum vel nibh vel semper. Vivamus dictum varius velit eget venenatis. Nulla facilisi. Sed varius quam non est hendrerit luctus. Maecenas pellentesque, massa a egestas scelerisque, lacus ex porttitor elit, vitae gravida odio erat non mauris. Sed aliquet, dolor ac fermentum pharetra, urna nisl ornare velit, quis egestas est libero a sem. Mauris tempus augue nec sem eleifend, a rutrum mi venenatis. Pellentesque ut eleifend nibh.
-    
-    Pellentesque vestibulum, ipsum fringilla pulvinar facilisis, mauris tortor rutrum erat, vitae accumsan risus enim posuere augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec eu enim augue. Morbi et fermentum ligula, sit amet tempor nulla. Maecenas non odio in felis pulvinar eleifend. Ut sed tempor quam. Nullam ac vehicula turpis. Maecenas dapibus commodo velit at dapibus. Nullam enim neque, ornare in placerat eget, laoreet id nunc. Vivamus vel mi posuere, feugiat ipsum ac, scelerisque lectus.
-    
-    Morbi sit amet porttitor ligula. Donec neque mi, eleifend sed mi eu, elementum pellentesque eros. Nam dictum suscipit leo, at gravida quam porta dapibus. Curabitur dictum vehicula nisl cursus mollis. Vestibulum sed magna urna. Proin vel neque nisl. Cras ac posuere mauris, varius molestie enim. Integer maximus lectus id tellus pretium dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac nisi eu erat ultricies laoreet. Proin consectetur sem at diam pulvinar, ut hendrerit velit pellentesque.
-    
-    Vivamus feugiat quam vitae nibh fringilla luctus. Nunc porta efficitur porttitor. Integer eget efficitur sapien. Nulla consectetur ex nibh. Praesent urna dui, lobortis sit amet hendrerit sit amet, semper sed mi. Integer ipsum ex, fermentum vitae est tristique, venenatis viverra nunc. Phasellus varius porttitor arcu, sed ultrices metus porttitor in. Donec ut erat arcu. Proin malesuada, sem id placerat iaculis, est sem mattis diam, at auctor purus lorem at ante. Maecenas dapibus dolor ac dapibus sollicitudin. Morbi eleifend fringilla sem, vel commodo augue. Nam id neque in tortor congue lacinia ut ut dolor.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ultricies diam nec dapibus. Maecenas maximus ex eu consequat tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu tempus ex, vitae cursus sapien. Sed rhoncus ut magna sollicitudin consectetur. Vivamus dapibus nibh tellus, sit amet vestibulum augue dapibus pretium.
-    
-    Aliquam nulla mauris, rutrum id dui a, faucibus semper nunc. Integer interdum vel nibh vel semper. Vivamus dictum varius velit eget venenatis. Nulla facilisi. Sed varius quam non est hendrerit luctus. Maecenas pellentesque, massa a egestas scelerisque, lacus ex porttitor elit, vitae gravida odio erat non mauris. Sed aliquet, dolor ac fermentum pharetra, urna nisl ornare velit, quis egestas est libero a sem. Mauris tempus augue nec sem eleifend, a rutrum mi venenatis. Pellentesque ut eleifend nibh.
-    
-    Pellentesque vestibulum, ipsum fringilla pulvinar facilisis, mauris tortor rutrum erat, vitae accumsan risus enim posuere augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec eu enim augue. Morbi et fermentum ligula, sit amet tempor nulla. Maecenas non odio in felis pulvinar eleifend. Ut sed tempor quam. Nullam ac vehicula turpis. Maecenas dapibus commodo velit at dapibus. Nullam enim neque, ornare in placerat eget, laoreet id nunc. Vivamus vel mi posuere, feugiat ipsum ac, scelerisque lectus.
-    
-    Morbi sit amet porttitor ligula. Donec neque mi, eleifend sed mi eu, elementum pellentesque eros. Nam dictum suscipit leo, at gravida quam porta dapibus. Curabitur dictum vehicula nisl cursus mollis. Vestibulum sed magna urna. Proin vel neque nisl. Cras ac posuere mauris, varius molestie enim. Integer maximus lectus id tellus pretium dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac nisi eu erat ultricies laoreet. Proin consectetur sem at diam pulvinar, ut hendrerit velit pellentesque.
-    
-    Vivamus feugiat quam vitae nibh fringilla luctus. Nunc porta efficitur porttitor. Integer eget efficitur sapien. Nulla consectetur ex nibh. Praesent urna dui, lobortis sit amet hendrerit sit amet, semper sed mi. Integer ipsum ex, fermentum vitae est tristique, venenatis viverra nunc. Phasellus varius porttitor arcu, sed ultrices metus porttitor in. Donec ut erat arcu. Proin malesuada, sem id placerat iaculis, est sem mattis diam, at auctor purus lorem at ante. Maecenas dapibus dolor ac dapibus sollicitudin. Morbi eleifend fringilla sem, vel commodo augue. Nam id neque in tortor congue lacinia ut ut dolor.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ultricies diam nec dapibus. Maecenas maximus ex eu consequat tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu tempus ex, vitae cursus sapien. Sed rhoncus ut magna sollicitudin consectetur. Vivamus dapibus nibh tellus, sit amet vestibulum augue dapibus pretium.
-    
-    Aliquam nulla mauris, rutrum id dui a, faucibus semper nunc. Integer interdum vel nibh vel semper. Vivamus dictum varius velit eget venenatis. Nulla facilisi. Sed varius quam non est hendrerit luctus. Maecenas pellentesque, massa a egestas scelerisque, lacus ex porttitor elit, vitae gravida odio erat non mauris. Sed aliquet, dolor ac fermentum pharetra, urna nisl ornare velit, quis egestas est libero a sem. Mauris tempus augue nec sem eleifend, a rutrum mi venenatis. Pellentesque ut eleifend nibh.
-    
-    Pellentesque vestibulum, ipsum fringilla pulvinar facilisis, mauris tortor rutrum erat, vitae accumsan risus enim posuere augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec eu enim augue. Morbi et fermentum ligula, sit amet tempor nulla. Maecenas non odio in felis pulvinar eleifend. Ut sed tempor quam. Nullam ac vehicula turpis. Maecenas dapibus commodo velit at dapibus. Nullam enim neque, ornare in placerat eget, laoreet id nunc. Vivamus vel mi posuere, feugiat ipsum ac, scelerisque lectus.
-    
-    Morbi sit amet porttitor ligula. Donec neque mi, eleifend sed mi eu, elementum pellentesque eros. Nam dictum suscipit leo, at gravida quam porta dapibus. Curabitur dictum vehicula nisl cursus mollis. Vestibulum sed magna urna. Proin vel neque nisl. Cras ac posuere mauris, varius molestie enim. Integer maximus lectus id tellus pretium dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac nisi eu erat ultricies laoreet. Proin consectetur sem at diam pulvinar, ut hendrerit velit pellentesque.
-    
-    Vivamus feugiat quam vitae nibh fringilla luctus. Nunc porta efficitur porttitor. Integer eget efficitur sapien. Nulla consectetur ex nibh. Praesent urna dui, lobortis sit amet hendrerit sit amet, semper sed mi. Integer ipsum ex, fermentum vitae est tristique, venenatis viverra nunc. Phasellus varius porttitor arcu, sed ultrices metus porttitor in. Donec ut erat arcu. Proin malesuada, sem id placerat iaculis, est sem mattis diam, at auctor purus lorem at ante. Maecenas dapibus dolor ac dapibus sollicitudin. Morbi eleifend fringilla sem, vel commodo augue. Nam id neque in tortor congue lacinia ut ut dolor.
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin cursus ultricies diam nec dapibus. Maecenas maximus ex eu consequat tristique. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu tempus ex, vitae cursus sapien. Sed rhoncus ut magna sollicitudin consectetur. Vivamus dapibus nibh tellus, sit amet vestibulum augue dapibus pretium.
-    
-    Aliquam nulla mauris, rutrum id dui a, faucibus semper nunc. Integer interdum vel nibh vel semper. Vivamus dictum varius velit eget venenatis. Nulla facilisi. Sed varius quam non est hendrerit luctus. Maecenas pellentesque, massa a egestas scelerisque, lacus ex porttitor elit, vitae gravida odio erat non mauris. Sed aliquet, dolor ac fermentum pharetra, urna nisl ornare velit, quis egestas est libero a sem. Mauris tempus augue nec sem eleifend, a rutrum mi venenatis. Pellentesque ut eleifend nibh.
-    
-    Pellentesque vestibulum, ipsum fringilla pulvinar facilisis, mauris tortor rutrum erat, vitae accumsan risus enim posuere augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec eu enim augue. Morbi et fermentum ligula, sit amet tempor nulla. Maecenas non odio in felis pulvinar eleifend. Ut sed tempor quam. Nullam ac vehicula turpis. Maecenas dapibus commodo velit at dapibus. Nullam enim neque, ornare in placerat eget, laoreet id nunc. Vivamus vel mi posuere, feugiat ipsum ac, scelerisque lectus.
-    
-    Morbi sit amet porttitor ligula. Donec neque mi, eleifend sed mi eu, elementum pellentesque eros. Nam dictum suscipit leo, at gravida quam porta dapibus. Curabitur dictum vehicula nisl cursus mollis. Vestibulum sed magna urna. Proin vel neque nisl. Cras ac posuere mauris, varius molestie enim. Integer maximus lectus id tellus pretium dignissim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam ac nisi eu erat ultricies laoreet. Proin consectetur sem at diam pulvinar, ut hendrerit velit pellentesque.
-    
-    Vivamus feugiat quam vitae nibh fringilla luctus. Nunc porta efficitur porttitor. Integer eget efficitur sapien. Nulla consectetur ex nibh. Praesent urna dui, lobortis sit amet hendrerit sit amet, semper sed mi. Integer ipsum ex, fermentum vitae est tristique, venenatis viverra nunc. Phasellus varius porttitor arcu, sed ultrices metus porttitor in. Donec ut erat arcu. Proin malesuada, sem id placerat iaculis, est sem mattis diam, at auctor purus lorem at ante. Maecenas dapibus dolor ac dapibus sollicitudin. Morbi eleifend fringilla sem, vel commodo augue. Nam id neque in tortor congue lacinia ut ut dolor.
-                </Typography></p>
-            </div>
-        )
-    }
+    return (
+        <Fragment>
+            <Typography variant="h3"><img src="../res/aplogo.png" alt="ankiport logo" width="100" />Ankiport</Typography>
 
+            <Typography variant="body1">
+                <p>An app that lets you convert from Quizlet to Anki.</p>
+                <p>Just plug in a valid Quizlet URL, click <code>Make a Deck!</code>, and it'll download an Anki <code>.apkg</code> with all the text content transferred over.</p>
+            </Typography>
+
+            <Typography variant="h5"> What is Quizlet?</Typography>
+
+            <Typography variant="body1"><a href="quizlet.com">Quizlet</a> is a web-based flashcard service that lets you create flashcard decks for pretty much anything.</Typography>
+            <Typography variant="h5"> What is Anki?</Typography>
+
+            <Typography variant="body1"> <a href="https://apps.ankiweb.net/">Anki</a> is also a flashcard service, but it beats Quizlet out in a number of ways. For starters, the Anki project is open source, and the Anki app is completely free. You get a lot of the features that you have to pay for in Quizlet for free, plus a load of other really great features that let you make Anki your own. Here are just some of them:</Typography>
+
+            <Typography variant="subtitle2"> Quizlet features that are free: </Typography>
+            <Typography variant="body1">
+                <ul>
+                    <li>Offline studying</li>
+                    <li>Custom image support</li>
+                    <li>Audio</li>
+                    <li>No ads!</li>
+                </ul>
+            </Typography>
+
+            <Typography variant="subtitle2">Additional features: </Typography>
+            <Typography variant="body1">
+                <ul>
+                    <li>Latex support (for flawless looking math)</li>
+                    <li>Code syntax highlighting (for all you CS college students)</li>
+                    <li>Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)</li>
+                    <li>Fully customizable card styles (via CSS)</li>
+                </ul>
+                As you can tell, I really like Anki :P I loved using Quizlet, but once I discovered Anki, I couldn't go back.
+                    </Typography>
+
+            <Typography variant="subtitle1"> Why Ankiport?</Typography>
+
+            <Typography variant="body1">Like I said earlier, Quizlet is the standard way to make and share flashcards amongst my fellow students. Anki is pretty underground compared to Quizlet, so I often found myself still using Quizlet just for the sake of easy sharing. I wanted a bridge between the two, so that I could take stuff that had been made in Quizlet and port it over to Anki. From that idea, Ankiport was born!</Typography>
+        </Fragment >
+    )
 }
+
 
 export default AboutSection;

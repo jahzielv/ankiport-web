@@ -1,13 +1,40 @@
-import React from "react";
-import { Fab, Grid, TextField, Snackbar, Button } from "@material-ui/core";
+import React, { Fragment } from "react";
+import { Fab, Grid, TextField, Snackbar, Button, Modal, Typography } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
+import PropTypes from 'prop-types';
+import AboutSection from "./AboutSection";
+
 const saveAs = require("file-saver");
+
+const styles = theme => ({
+    paper: {
+        position: 'absolute',
+        width: theme.spacing.unit * 130,
+        backgroundColor: theme.palette.background.paper,
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing.unit * 4,
+    },
+});
+
+
+function getModalStyle() {
+    const top = 50
+    const left = 50
+
+    return {
+        top: `${top}%`,
+        left: `${left}%`,
+        transform: `translate(-${top}%, -${left}%)`,
+    };
+}
 
 export class InputArea extends React.Component {
     state = {
         id: "",
         portErr: false,
         badUrl: false,
+        modalOpen: false
     };
 
     deckButtonClick = () => {
@@ -48,87 +75,114 @@ export class InputArea extends React.Component {
         this.setState({ badUrl: false });
     };
 
+    handleModalOpen = () => {
+        this.setState({ modalOpen: true });
+    };
+
+    handleModalClose = () => {
+        this.setState({ modalOpen: false });
+    };
+
+
+
     render() {
         const { portErr, badUrl } = this.state;
+        const { classes } = this.props;
         return (
-            <Grid
-                container
-                spacing={40}
-                style={{ paddingTop: "40px" }}
-                direction="column"
-            >
+            <Fragment>
+                <Modal
+                    aria-labelledby="simple-modal-title"
+                    aria-describedby="simple-modal-description"
+                    open={this.state.modalOpen}
+                    onClose={this.handleModalClose}
+                >
+                    <div style={getModalStyle()} className={classes.paper}>
+                        <AboutSection />
+                    </div>
+                </Modal>
                 <Grid
                     container
-                    item
-                    direction="row"
-                    justify="flex-start"
-                    alignItems="center"
                     spacing={40}
+                    style={{ paddingTop: "40px" }}
+                    direction="column"
                 >
-                    <TextField
-                        id="url-field"
-                        label="Quizlet Deck URL"
-                        placeholder=""
-                        margin="normal"
-                        type="url"
-                        variant="outlined"
-                        style={{ width: "1000px" }}
-                        onChange={e => {
-                            this.setState({ id: e.target.value });
-                        }}
-                    />
-                    <div style={{ paddingLeft: "30px" }}>
-                        <Fab
-                            id="buttonPort"
-                            variant="extended"
-                            color="primary"
-                            size="large"
-                            onClick={this.deckButtonClick}
-                        >
-                            Make a deck!
+                    <Grid
+                        container
+                        item
+                        direction="row"
+                        justify="flex-start"
+                        alignItems="center"
+                        spacing={40}
+                    >
+                        <TextField
+                            id="url-field"
+                            label="Quizlet Deck URL"
+                            placeholder=""
+                            margin="normal"
+                            type="url"
+                            variant="outlined"
+                            style={{ width: "1000px" }}
+                            onChange={e => {
+                                this.setState({ id: e.target.value });
+                            }}
+                        />
+                        <div style={{ paddingLeft: "30px" }}>
+                            <Fab
+                                id="buttonPort"
+                                variant="extended"
+                                color="primary"
+                                size="large"
+                                onClick={this.deckButtonClick}
+                            >
+                                Make a deck!
                         </Fab>
-                    </div>
+                        </div>
 
-                    <div style={{ paddingRight: "600px" }}><Button variant="text">About</Button></div>
+                        <div style={{ paddingLeft: "30px" }}><Button variant="text" onClick={this.handleModalOpen}>About</Button></div>
+                    </Grid>
+                    <Snackbar
+                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                        open={portErr}
+                        autoHideDuration={6000}
+                        onClose={this.handleClose}
+                        ContentProps={{
+                            "aria-describedby": "porterr-msg",
+                        }}
+                        message={
+                            <span id="porterr-msg">
+                                We couldn't find that Quizlet{" "}
+                                <span role="img" aria-label="disappointed-face">
+                                    😔
+                            </span>
+                                Please try again!
+                        </span>
+                        }
+                    />
+                    <Snackbar
+                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                        open={badUrl}
+                        autoHideDuration={6000}
+                        onClose={this.handleCloseUrl}
+                        ContentProps={{
+                            "aria-describedby": "message-id",
+                        }}
+                        message={
+                            <span id="message-id">
+                                Make sure your URL is correct{" "}
+                                <span role="img" aria-label="eyes">
+                                    👀
+                            </span>
+                            </span>
+                        }
+                    />
                 </Grid>
-                <Snackbar
-                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                    open={portErr}
-                    autoHideDuration={6000}
-                    onClose={this.handleClose}
-                    ContentProps={{
-                        "aria-describedby": "porterr-msg",
-                    }}
-                    message={
-                        <span id="porterr-msg">
-                            We couldn't find that Quizlet{" "}
-                            <span role="img" aria-label="disappointed-face">
-                                😔
-                            </span>
-                            Please try again!
-                        </span>
-                    }
-                />
-                <Snackbar
-                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                    open={badUrl}
-                    autoHideDuration={6000}
-                    onClose={this.handleCloseUrl}
-                    ContentProps={{
-                        "aria-describedby": "message-id",
-                    }}
-                    message={
-                        <span id="message-id">
-                            Make sure your URL is correct{" "}
-                            <span role="img" aria-label="eyes">
-                                👀
-                            </span>
-                        </span>
-                    }
-                />
-            </Grid>
+            </Fragment>
         );
     }
 }
 
-export default InputArea;
+InputArea.propTypes = {
+    classes: PropTypes.object.isRequired,
+};
+const InputAreaE = withStyles(styles)(InputArea);
+export default InputAreaE;
