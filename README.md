@@ -4,6 +4,14 @@ An app that lets you convert from Quizlet to Anki.
 
 Just plug in a valid Quizlet URL, click `Make a Deck!`, and it'll download an Anki `.apkg` with all the text content transferred over.
 
+## Release notes for 0.1.0 - 12-27-2018
+
+### Fixed:
+- Links open in a new tab instead of the current one
+
+### New:
+- "About" modal has been added! Click the "About" button to get some info on the app, how to use it, and why I built it.
+
 ## What is Quizlet?
 
 [Quizlet](quizlet.com) is a web-based flashcard service that lets you create flashcard decks for pretty much anything. As a student, Quizlet has been a valuable resource for effective learning - it's also the defacto way to make and share flashcards, at least at my school. While Quizlet is a great and fast way to make flashcards and share them with others, there are a lot of features (custom images, audio, offline access, no ads) that are reserved only for paying members.
