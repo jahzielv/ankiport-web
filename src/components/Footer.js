@@ -1,18 +1,31 @@
 import React from "react";
-import { withStyles, Typography } from "@material-ui/core";
+import { withStyles, Typography, Button, Grid } from "@material-ui/core";
 
 const styles = theme => (
     {
         footer: {
-            position: "absolute",
+            // position: "absolute",
             left: "0",
             bottom: "0",
             right: "0",
-            height: "35px"
+            // width: "160px",
+            position: "fixed",
+            height: "35px",
+            // background: "red"
         },
         footerText: {
-            paddingRight: "20px",
-            // paddingBottom: "10px",
+            paddingLeft: "20px",
+            paddingTop: "5px",
+            color: "navy",
+            align: "left"
+        },
+        phantom: {
+            display: 'block',
+            padding: '20px',
+            height: '60px',
+            width: '100%',
+        },
+        footerLink: {
             color: "navy"
         }
     }
@@ -22,8 +35,11 @@ const styles = theme => (
 
 const Footer = ({ classes }) => {
     return (
-        <div className={classes.footer}>
-            <Typography className={classes.footerText} align="right">Made with &#10084; by <a href="https://jahz.co">JVE</a>.</Typography>
+        <div>
+            <div className={classes.phantom} />
+            <div className={classes.footer}>
+                <div className={classes.footerText}><Typography>Made with &#10084; by <a className={classes.footerLink} href="https://jahz.co">JVE</a>.</Typography></div>
+            </div>
         </div>
     );
 }

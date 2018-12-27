@@ -1,5 +1,5 @@
 import React from "react";
-import { Fab, Grid, TextField, Snackbar } from "@material-ui/core";
+import { Fab, Grid, TextField, Snackbar, Button } from "@material-ui/core";
 import fetch from "node-fetch";
 const saveAs = require("file-saver");
 
@@ -88,6 +88,8 @@ export class InputArea extends React.Component {
                             Make a deck!
                         </Fab>
                     </div>
+
+                    <div style={{ paddingRight: "600px" }}><Button variant="text">About</Button></div>
                 </Grid>
                 <Snackbar
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
