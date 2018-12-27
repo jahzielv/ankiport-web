@@ -38,7 +38,7 @@ const Footer = ({ classes }) => {
         <div>
             <div className={classes.phantom} />
             <div className={classes.footer}>
-                <div className={classes.footerText}><Typography>Made with &#10084; by <a className={classes.footerLink} href="https://jahz.co">JVE</a>.</Typography></div>
+                <div className={classes.footerText}><Typography>Made with &#10084; by <a className={classes.footerLink} target="_blank" href="https://jahz.co">JVE</a>.</Typography></div>
             </div>
         </div>
     );

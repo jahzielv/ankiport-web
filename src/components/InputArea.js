@@ -26,6 +26,7 @@ function getModalStyle() {
         top: `${top}%`,
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
+        overflow: "scroll"
     };
 }
 
@@ -95,6 +96,7 @@ export class InputArea extends React.Component {
                     aria-describedby="simple-modal-description"
                     open={this.state.modalOpen}
                     onClose={this.handleModalClose}
+
                 >
                     <div style={getModalStyle()} className={classes.paper}>
                         <AboutSection />
