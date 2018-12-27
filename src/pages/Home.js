@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-    Typography,
     Grid,
 } from '@material-ui/core';
 import classNames from "classnames";
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import AnkiHeader from "../components/AnkiHeader";
 import Input from "../components/InputArea";
 
 
@@ -26,10 +26,8 @@ function HomePage(props) {
 
     return (
         <Grid container className={classNames(classes.root)}>
-            <Grid container className={classNames(classes.root)} direction="column" id="gridContent">
-                <Typography variant="h1" align="center">Ankiport</Typography>
-                <Input />
-            </Grid>
+            <AnkiHeader />
+            <Input />
         </Grid>
     );
 }
