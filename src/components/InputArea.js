@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Fab, Grid, TextField, Snackbar, Button, Modal, Typography } from "@material-ui/core";
+import { Fab, Grid, TextField, Snackbar, Button, Modal } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
 import PropTypes from 'prop-types';

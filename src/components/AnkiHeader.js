@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Button } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 class AnkiHeader extends React.Component {
     render() {

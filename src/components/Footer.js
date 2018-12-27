@@ -1,5 +1,5 @@
 import React from "react";
-import { withStyles, Typography, Button, Grid } from "@material-ui/core";
+import { withStyles, Typography } from "@material-ui/core";
 
 const styles = theme => (
     {
@@ -38,7 +38,7 @@ const Footer = ({ classes }) => {
         <div>
             <div className={classes.phantom} />
             <div className={classes.footer}>
-                <div className={classes.footerText}><Typography>Made with &#10084; by <a className={classes.footerLink} target="_blank" href="https://jahz.co">JVE</a>.</Typography></div>
+                <div className={classes.footerText}><Typography>Made with &#10084; by <a className={classes.footerLink} target="_blank" rel="noopener noreferrer" href="https://jahz.co">JVE</a>.</Typography></div>
             </div>
         </div>
     );
