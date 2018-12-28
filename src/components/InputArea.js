@@ -46,7 +46,7 @@ export class InputArea extends React.Component {
             }
             let qId = qUrl.pathname.split("/")[1];
             let filename;
-            fetch(`https://ankiport-api.appspot.com/port?setID=${qId}`)
+            fetch(`https://3cae2128.ngrok.io/port?setID=${qId}`)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
