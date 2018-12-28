@@ -19,8 +19,6 @@ const styles = theme => ({
 
 
 function getModalStyle() {
-    // const top = 50
-    // const left = 50
 
     return {
         top: "50%",
