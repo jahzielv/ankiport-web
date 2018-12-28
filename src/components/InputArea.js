@@ -9,7 +9,7 @@ const saveAs = require("file-saver");
 
 const styles = theme => ({
     paper: {
-        position: 'absolute',
+        position: 'relative',
         width: theme.spacing.unit * 130,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
@@ -19,13 +19,14 @@ const styles = theme => ({
 
 
 function getModalStyle() {
-    const top = 50
-    const left = 50
+    // const top = 50
+    // const left = 50
 
     return {
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: `translate(-${top}%, -${left}%)`,
+        top: "50%",
+        left: "50%",
+        transform: `translate(-50%, -50%)`,
+        maxHeight: "100%",
         overflow: "scroll"
     };
 }
@@ -96,6 +97,9 @@ export class InputArea extends React.Component {
                     aria-describedby="simple-modal-description"
                     open={this.state.modalOpen}
                     onClose={this.handleModalClose}
+                    style={{
+                        overflow: "scroll"
+                    }}
 
                 >
                     <div style={getModalStyle()} className={classes.paper}>
@@ -178,7 +182,7 @@ export class InputArea extends React.Component {
                         }
                     />
                 </Grid>
-            </Fragment>
+            </Fragment >
         );
     }
 }
