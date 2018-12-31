@@ -58,11 +58,13 @@ export class InputArea extends React.Component {
             let qId = qUrl.pathname.split("/")[1];
             let filename;
             var css = {
-                "font-family": "times",
-                "font-size": "40px",
-                "text-align": "center",
-                "color": "blue",
-                "background-color": "white"
+                // "font-family": "times",
+                // "font-size": "40px",
+                // "text-align": "center",
+                // "color": "blue",
+                // "background-color": "white"
+                "font-family": "arial",
+                "color": "green"
             }
             var config = {
                 method: "POST",
@@ -74,7 +76,7 @@ export class InputArea extends React.Component {
                 },
                 body: createBody(css)
             }
-            fetch(`https://bcb66615.ngrok.io/port?setID=${qId}`, config)
+            fetch(`https://861d16bb.ngrok.io/port?setID=${qId}`, config)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
