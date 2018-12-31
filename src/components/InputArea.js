@@ -1,25 +1,47 @@
 import React, { Fragment } from "react";
-import { Fab, Grid, TextField, Snackbar, Button, Modal } from "@material-ui/core";
+import {
+    Fab,
+    Grid,
+    TextField,
+    Snackbar,
+    Button,
+    Modal,
+    ExpansionPanel,
+    ExpansionPanelDetails,
+    ExpansionPanelSummary,
+    Typography,
+    Select,
+    MenuItem,
+    FormControl,
+    InputLabel
+} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import AboutSection from "./AboutSection";
 
 const saveAs = require("file-saver");
 
 const styles = theme => ({
     paper: {
-        position: 'relative',
+        position: "relative",
         width: theme.spacing.unit * 130,
         backgroundColor: theme.palette.background.paper,
         boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4,
+        padding: theme.spacing.unit * 4
     },
+    heading: {
+        color: "blue"
+    },
+    formControl: {
+        minWidth: "120px"
+    },
+    hexText: {
+        minWidth: "100px"
+    }
 });
 
-
 function getModalStyle() {
-
     return {
         top: "50%",
         left: "50%",
@@ -45,7 +67,11 @@ export class InputArea extends React.Component {
         id: "",
         portErr: false,
         badUrl: false,
-        modalOpen: false
+        modalOpen: false,
+        hexColor: "",
+        color: "",
+        font: "",
+        fontSize: 0
     };
 
     deckButtonClick = () => {
@@ -58,31 +84,28 @@ export class InputArea extends React.Component {
             let qId = qUrl.pathname.split("/")[1];
             let filename;
             var css = {
-                // "font-family": "times",
-                // "font-size": "40px",
+                "font-family": this.state.font,
+                "font-size": this.state.fontSize + "px",
                 // "text-align": "center",
-                // "color": "blue",
+                color: this.state.color
                 // "background-color": "white"
-                "font-family": "arial",
-                "color": "green"
-            }
+            };
             var config = {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                     "Access-Control-Allow-Origin": "*",
                     "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
-                    "Access-Control-Allow-Headers": "Origin, X-Requested-With, contentType, Content-Type, Accept, Authorization"
+                    "Access-Control-Allow-Headers":
+                        "Origin, X-Requested-With, contentType, Content-Type, Accept, Authorization"
                 },
                 body: createBody(css)
-            }
+            };
             fetch(`https://861d16bb.ngrok.io/port?setID=${qId}`, config)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
-                        return Promise.reject(
-                            "404 error - invalid set ID number"
-                        );
+                        return Promise.reject("404 error - invalid set ID number");
                     } else {
                         return response.blob();
                     }
@@ -113,7 +136,9 @@ export class InputArea extends React.Component {
         this.setState({ modalOpen: false });
     };
 
-
+    handleChangeSelect = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     render() {
         const { portErr, badUrl } = this.state;
@@ -128,7 +153,6 @@ export class InputArea extends React.Component {
                     style={{
                         overflow: "scroll"
                     }}
-
                 >
                     <div style={getModalStyle()} className={classes.paper}>
                         <AboutSection />
@@ -169,10 +193,14 @@ export class InputArea extends React.Component {
                                 onClick={this.deckButtonClick}
                             >
                                 Make a deck!
-                        </Fab>
+                            </Fab>
                         </div>
 
-                        <div style={{ paddingLeft: "30px" }}><Button variant="text" onClick={this.handleModalOpen}>About</Button></div>
+                        <div style={{ paddingLeft: "30px" }}>
+                            <Button variant="text" onClick={this.handleModalOpen}>
+                                About
+                            </Button>
+                        </div>
                     </Grid>
                     <Snackbar
                         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
@@ -180,16 +208,16 @@ export class InputArea extends React.Component {
                         autoHideDuration={6000}
                         onClose={this.handleClose}
                         ContentProps={{
-                            "aria-describedby": "porterr-msg",
+                            "aria-describedby": "porterr-msg"
                         }}
                         message={
                             <span id="porterr-msg">
                                 We couldn't find that Quizlet{" "}
                                 <span role="img" aria-label="disappointed-face">
                                     😔
-                            </span>
+                                </span>
                                 Please try again!
-                        </span>
+                            </span>
                         }
                     />
                     <Snackbar
@@ -198,25 +226,103 @@ export class InputArea extends React.Component {
                         autoHideDuration={6000}
                         onClose={this.handleCloseUrl}
                         ContentProps={{
-                            "aria-describedby": "message-id",
+                            "aria-describedby": "message-id"
                         }}
                         message={
                             <span id="message-id">
                                 Make sure your URL is correct{" "}
                                 <span role="img" aria-label="eyes">
                                     👀
-                            </span>
+                                </span>
                             </span>
                         }
                     />
+                    <ExpansionPanel>
+                        <ExpansionPanelSummary>
+                            <Typography className={classes.heading}>
+                                Customize your cards!
+                            </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="space-between"
+                                spacing={16}
+                            >
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel htmlFor="usr-font">Font</InputLabel>
+                                    <Select
+                                        value={this.state.font}
+                                        onChange={this.handleChangeSelect}
+                                        inputProps={{
+                                            name: "font",
+                                            id: "usr-font"
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>Default</em>
+                                        </MenuItem>
+                                        <MenuItem value={"times"}>
+                                            Times New Roman
+                                        </MenuItem>
+                                        <MenuItem value={"arial"}>Arial</MenuItem>
+                                        <MenuItem value={"courier"}>Courier</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel htmlFor="usr-color">
+                                        Font Color
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.color}
+                                        onChange={this.handleChangeSelect}
+                                        inputProps={{
+                                            name: "color",
+                                            id: "usr-color"
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>Default</em>
+                                        </MenuItem>
+                                        <MenuItem value={"blue"}>Blue</MenuItem>
+                                        <MenuItem value={"green"}>Green</MenuItem>
+                                        <MenuItem value={"orange"}>Orange</MenuItem>
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel htmlFor="usr-fontSize">
+                                        Font Size
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.fontSize}
+                                        onChange={this.handleChangeSelect}
+                                        inputProps={{
+                                            name: "fontSize",
+                                            id: "usr-fontSize"
+                                        }}
+                                    >
+                                        <MenuItem value="">
+                                            <em>Default</em>
+                                        </MenuItem>
+                                        <MenuItem value={10}>10</MenuItem>
+                                        <MenuItem value={20}>20</MenuItem>
+                                        <MenuItem value={30}>30</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </Grid>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
                 </Grid>
-            </Fragment >
+            </Fragment>
         );
     }
 }
 
 InputArea.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 const InputAreaE = withStyles(styles)(InputArea);
 export default InputAreaE;

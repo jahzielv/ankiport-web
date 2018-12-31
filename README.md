@@ -1,6 +1,7 @@
 <h1><a href="https://ankiport-app.appspot.com/"><img src="./public/res/aplogo.png" alt="ankiport logo" width="100"/></a>Ankiport</h1>
 
-![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)
+<a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
+<a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/Style-Prettier-blue.svg)</a>
 
 An app that lets you convert from Quizlet to Anki.
 
@@ -16,17 +17,17 @@ Enter [Anki](https://apps.ankiweb.net/)! Anki is also a flashcard service, but i
 
 ### Anki features that are free:
 
-- Offline studying
-- Custom image support
-- Audio
-- No ads!
+-   Offline studying
+-   Custom image support
+-   Audio
+-   No ads!
 
 ### Additional features:
 
-- Latex support (for flawless looking math)
-- Code syntax highlighting (for all you CS college students)
-- Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
-- Fully customizable card styles (via CSS)
+-   Latex support (for flawless looking math)
+-   Code syntax highlighting (for all you CS college students)
+-   Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
+-   Fully customizable card styles (via CSS)
 
 As you can tell, I really like Anki :P I loved using Quizlet, but once I discovered Anki, I couldn't go back.
 
@@ -44,14 +45,14 @@ Ankiport can currently only handle text flashcards. Quizlet sets with images wil
 
 ### Coming Soon (0.2.0)
 
-- [ ] Image support
-- [ ] Changing Anki card style (CSS)
+-   [ ] Image support
+-   [ ] Changing Anki card style (CSS)
 
 ### On the horizon
 
-- Audio support
-- Math conversion to Latex
-- Sharing decks to Ankiweb
+-   Audio support
+-   Math conversion to Latex
+-   Sharing decks to Ankiweb
 
 ## Nerdy Deets
 
