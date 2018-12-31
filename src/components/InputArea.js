@@ -29,6 +29,17 @@ function getModalStyle() {
     };
 }
 
+function createBody(values) {
+    let reqBody = [];
+    for (let property in values) {
+        let encodedKey = encodeURIComponent(property);
+        let encodedValue = encodeURIComponent(values[property]);
+        reqBody.push(encodedKey + "=" + encodedValue);
+    }
+    reqBody = reqBody.join("&");
+    return reqBody;
+}
+
 export class InputArea extends React.Component {
     state = {
         id: "",
@@ -46,7 +57,24 @@ export class InputArea extends React.Component {
             }
             let qId = qUrl.pathname.split("/")[1];
             let filename;
-            fetch(`https://3cae2128.ngrok.io/port?setID=${qId}`)
+            var css = {
+                "font-family": "times",
+                "font-size": "40px",
+                "text-align": "center",
+                "color": "blue",
+                "background-color": "white"
+            }
+            var config = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+                    "Access-Control-Allow-Headers": "Origin, X-Requested-With, contentType, Content-Type, Accept, Authorization"
+                },
+                body: createBody(css)
+            }
+            fetch(`https://bcb66615.ngrok.io/port?setID=${qId}`, config)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
