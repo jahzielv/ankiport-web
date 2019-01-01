@@ -229,7 +229,7 @@ export class InputArea extends React.Component {
                             </span>
                         }
                     />
-                    <ExpansionPanel>
+                    <ExpansionPanel style={{ maxWidth: "1000px" }}>
                         <ExpansionPanelSummary>
                             <Typography className={classes.heading}>
                                 Customize your cards!
