@@ -1,7 +1,7 @@
 <h1><a href="https://ankiport-app.appspot.com/"><img src="./public/res/aplogo.png" alt="ankiport logo" width="100"/></a>Ankiport</h1>
 
 <a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
-<a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/Style-Prettier-blue.svg)</a>
+<a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/style-Prettier-blue.svg)</a>
 
 An app that lets you convert from Quizlet to Anki.
 
