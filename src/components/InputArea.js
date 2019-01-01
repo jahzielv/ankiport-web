@@ -34,7 +34,7 @@ const styles = theme => ({
         color: "blue"
     },
     formControl: {
-        minWidth: "120px"
+        minWidth: "200px"
     },
     hexText: {
         minWidth: "100px"
@@ -71,7 +71,7 @@ export class InputArea extends React.Component {
         hexColor: "",
         color: "",
         font: "",
-        fontSize: 0
+        fontSize: ""
     };
 
     deckButtonClick = () => {
@@ -101,7 +101,7 @@ export class InputArea extends React.Component {
                 },
                 body: createBody(css)
             };
-            fetch(`https://861d16bb.ngrok.io/port?setID=${qId}`, config)
+            fetch(`https://601c5aac.ngrok.io/port?setID=${qId}`, config)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
@@ -150,9 +150,7 @@ export class InputArea extends React.Component {
                     aria-describedby="simple-modal-description"
                     open={this.state.modalOpen}
                     onClose={this.handleModalClose}
-                    style={{
-                        overflow: "scroll"
-                    }}
+                    style={{ overflow: "scroll" }}
                 >
                     <div style={getModalStyle()} className={classes.paper}>
                         <AboutSection />
@@ -207,9 +205,7 @@ export class InputArea extends React.Component {
                         open={portErr}
                         autoHideDuration={6000}
                         onClose={this.handleClose}
-                        ContentProps={{
-                            "aria-describedby": "porterr-msg"
-                        }}
+                        ContentProps={{ "aria-describedby": "porterr-msg" }}
                         message={
                             <span id="porterr-msg">
                                 We couldn't find that Quizlet{" "}
@@ -225,9 +221,7 @@ export class InputArea extends React.Component {
                         open={badUrl}
                         autoHideDuration={6000}
                         onClose={this.handleCloseUrl}
-                        ContentProps={{
-                            "aria-describedby": "message-id"
-                        }}
+                        ContentProps={{ "aria-describedby": "message-id" }}
                         message={
                             <span id="message-id">
                                 Make sure your URL is correct{" "}
@@ -255,19 +249,29 @@ export class InputArea extends React.Component {
                                     <Select
                                         value={this.state.font}
                                         onChange={this.handleChangeSelect}
-                                        inputProps={{
-                                            name: "font",
-                                            id: "usr-font"
-                                        }}
+                                        inputProps={{ name: "font", id: "usr-font" }}
                                     >
                                         <MenuItem value="">
                                             <em>Default</em>
                                         </MenuItem>
-                                        <MenuItem value={"times"}>
+                                        <MenuItem
+                                            value={"times"}
+                                            style={{ fontFamily: "times" }}
+                                        >
                                             Times New Roman
                                         </MenuItem>
-                                        <MenuItem value={"arial"}>Arial</MenuItem>
-                                        <MenuItem value={"courier"}>Courier</MenuItem>
+                                        <MenuItem
+                                            value={"arial"}
+                                            style={{ fontFamily: "Arial" }}
+                                        >
+                                            Arial
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"courier"}
+                                            style={{ fontFamily: "Courier" }}
+                                        >
+                                            Courier
+                                        </MenuItem>
                                     </Select>
                                 </FormControl>
 
@@ -278,17 +282,29 @@ export class InputArea extends React.Component {
                                     <Select
                                         value={this.state.color}
                                         onChange={this.handleChangeSelect}
-                                        inputProps={{
-                                            name: "color",
-                                            id: "usr-color"
-                                        }}
+                                        inputProps={{ name: "color", id: "usr-color" }}
                                     >
                                         <MenuItem value="">
                                             <em>Default</em>
                                         </MenuItem>
-                                        <MenuItem value={"blue"}>Blue</MenuItem>
-                                        <MenuItem value={"green"}>Green</MenuItem>
-                                        <MenuItem value={"orange"}>Orange</MenuItem>
+                                        <MenuItem
+                                            value={"blue"}
+                                            style={{ color: "blue" }}
+                                        >
+                                            Blue
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"green"}
+                                            style={{ color: "green" }}
+                                        >
+                                            Green
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"orange"}
+                                            style={{ color: "orange" }}
+                                        >
+                                            Orange
+                                        </MenuItem>
                                     </Select>
                                 </FormControl>
 
