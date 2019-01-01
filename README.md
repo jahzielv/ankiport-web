@@ -29,7 +29,7 @@ Enter [Anki](https://apps.ankiweb.net/)! Anki is also a flashcard service, but i
 -   Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
 -   Fully customizable card styles (via CSS)
 
-As you can tell, I really like Anki :P I loved using Quizlet, but once I discovered Anki, I couldn't go back.
+As you can tell, I really like Anki 😝 I loved using Quizlet, but once I discovered Anki, I couldn't go back.
 
 ## Why Ankiport?
 
@@ -39,18 +39,22 @@ Like I said earlier, Quizlet is the standard way to make and share flashcards am
 
 ## Feature List
 
-### Current (0.0.4)
+### Current (0.1.0)
 
 Ankiport can currently only handle text flashcards. Quizlet sets with images will still be processed, but the image won't be included in the Anki deck. Same goes for audio - support for these is coming soon!
+
+#### Update: 1/1/18
+
+Woohoo! Ringing in the new year with some custom card styles! You can now change the font, font color, and font size for the Anki cards you'll be generating. Expect UI updates and more flexibility over styling in the future.
 
 ### Coming Soon (0.2.0)
 
 -   [ ] Image support
--   [ ] Changing Anki card style (CSS)
+-   [x] Changing Anki card style (CSS)
 
 ### On the horizon
 
--   Audio support
+-   Audio support (??¿¿maybe¿¿??)
 -   Math conversion to Latex
 -   Sharing decks to Ankiweb
 

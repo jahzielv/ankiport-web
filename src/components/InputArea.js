@@ -86,9 +86,7 @@ export class InputArea extends React.Component {
             var css = {
                 "font-family": this.state.font,
                 "font-size": this.state.fontSize + "px",
-                // "text-align": "center",
                 color: this.state.color
-                // "background-color": "white"
             };
             var config = {
                 method: "POST",
@@ -101,7 +99,7 @@ export class InputArea extends React.Component {
                 },
                 body: createBody(css)
             };
-            fetch(`https://601c5aac.ngrok.io/port?setID=${qId}`, config)
+            fetch(`https://ankiport-api.appspot.com/port?setID=${qId}`, config)
                 .then(response => {
                     filename = response.headers.get("x-filename");
                     if (filename === null) {
