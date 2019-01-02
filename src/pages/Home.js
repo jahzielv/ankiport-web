@@ -1,25 +1,21 @@
-import React from 'react';
-import {
-    Grid,
-} from '@material-ui/core';
+import React from "react";
+import { Grid } from "@material-ui/core";
 import classNames from "classnames";
-import { withStyles } from '@material-ui/core/styles';
-import PropTypes from 'prop-types';
+import { withStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import AnkiHeader from "../components/AnkiHeader";
 import Input from "../components/InputArea";
-
 
 const styles = {
     root: {
         background: "light-grey",
-        color: 'white',
+        color: "white",
         padding: "10px",
         justify: "center",
         alignItems: "flex-start",
         direction: "column"
-    },
+    }
 };
-
 
 function HomePage(props) {
     const { classes } = props;
@@ -35,7 +31,7 @@ function HomePage(props) {
 HomePage.propTypes = {
     children: PropTypes.node,
     classes: PropTypes.object.isRequired,
-    className: PropTypes.string,
+    className: PropTypes.string
 };
 
 export default withStyles(styles)(HomePage);
