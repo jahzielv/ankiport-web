@@ -39,13 +39,9 @@ Like I said earlier, Quizlet is the standard way to make and share flashcards am
 
 ## Feature List
 
-### Current (0.1.0)
+### Current (0.1.5)
 
 Ankiport can currently only handle text flashcards. Quizlet sets with images will still be processed, but the image won't be included in the Anki deck. Same goes for audio - support for these is coming soon!
-
-#### Update: 1/1/18
-
-Woohoo! Ringing in the new year with some custom card styles! You can now change the font, font color, and font size for the Anki cards you'll be generating. Expect UI updates and more flexibility over styling in the future.
 
 ### Coming Soon (0.2.0)
 
