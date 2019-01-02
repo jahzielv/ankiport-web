@@ -15,15 +15,10 @@ Just plug in a valid Quizlet URL, click `Make a Deck!`, and it'll download an An
 
 Enter [Anki](https://apps.ankiweb.net/)! Anki is also a flashcard service, but it beats Quizlet out in a number of ways. For starters, the Anki project is open source, and the Anki app is completely free. You get a lot of the features that you have to pay for in Quizlet for free, plus a load of other really great features that let you make Anki your own. Here are just some of them:
 
-### Anki features that are free:
-
 -   Offline studying
 -   Custom image support
 -   Audio
 -   No ads!
-
-### Additional features:
-
 -   Latex support (for flawless looking math)
 -   Code syntax highlighting (for all you CS college students)
 -   Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
