@@ -6,7 +6,9 @@ class AnkiHeader extends React.Component {
         return (
             <div>
                 <Grid container direction="row">
-                    <Typography variant="h1" align="left">Ankiport</Typography>
+                    <Typography variant="h1" align="left">
+                        Ankiport
+                    </Typography>
                 </Grid>
             </div>
         );
