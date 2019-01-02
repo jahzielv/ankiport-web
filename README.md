@@ -24,7 +24,7 @@ Enter [Anki](https://apps.ankiweb.net/)! Anki is also a flashcard service, but i
 -   Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
 -   Fully customizable card styles (via CSS)
 
-As you can tell, I really like Anki 😝 I loved using Quizlet, but once I discovered Anki, I couldn't go back.
+As you can tell, I really like Anki 😝 Quizlet is a great way to start using flashcards, but once I discovered Anki, I couldn't go back.
 
 ## Why Ankiport?
 
