@@ -35,7 +35,7 @@ Like I said earlier, Quizlet is the standard way to make and share flashcards am
 
 ## Feature List
 
-#### Note: for details on what's going on, check out the [changelog](https://github.com/jahzielv/ankiport-web/blob/master/changelog.md)
+#### Note: for details on what's going on, check out the [changelog](https://github.com/jahzielv/ankiport-web/blob/master/changelog.md)!
 
 ### Current (0.1.2)
 
