@@ -1,5 +1,6 @@
 <h1><a href="https://ankiport-app.appspot.com/"><img src="./src/assets/aplogo.png" alt="ankiport logo" width="100"/></a>Ankiport</h1>
 
+![version-badge](https://img.shields.io/github/release/jahzielv/ankiport-web.svg)
 <a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
 <a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/style-Prettier-blue.svg)</a>
 ![license-badge](https://img.shields.io/github/license/jahzielv/ankiport-web.svg)
