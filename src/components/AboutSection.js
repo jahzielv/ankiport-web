@@ -11,7 +11,7 @@ export const AboutSection = () => {
                 Ankiport
             </Typography>
             <Grid container direction="row">
-                <Typography variant="subtitle2">Version 0.0.4</Typography>
+                <img src="https://img.shields.io/github/release/jahzielv/ankiport-web.svg" />
                 <Typography variant="subtitle2" style={{ paddingLeft: "15px" }}>
                     Code hosted on{" "}
                     <a
