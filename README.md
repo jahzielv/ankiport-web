@@ -2,6 +2,7 @@
 
 <a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
 <a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/style-Prettier-blue.svg)</a>
+![license-badge](https://img.shields.io/github/license/jahzielv/ankiport-web.svg)
 
 An app that lets you convert from Quizlet to Anki.
 
@@ -15,21 +16,16 @@ Just plug in a valid Quizlet URL, click `Make a Deck!`, and it'll download an An
 
 Enter [Anki](https://apps.ankiweb.net/)! Anki is also a flashcard service, but it beats Quizlet out in a number of ways. For starters, the Anki project is open source, and the Anki app is completely free. You get a lot of the features that you have to pay for in Quizlet for free, plus a load of other really great features that let you make Anki your own. Here are just some of them:
 
-### Anki features that are free:
-
 -   Offline studying
 -   Custom image support
 -   Audio
 -   No ads!
-
-### Additional features:
-
 -   Latex support (for flawless looking math)
 -   Code syntax highlighting (for all you CS college students)
 -   Extensible (Anki is written in Python, and anyone can write an Anki extension for everyone to use)
 -   Fully customizable card styles (via CSS)
 
-As you can tell, I really like Anki 😝 I loved using Quizlet, but once I discovered Anki, I couldn't go back.
+As you can tell, I really like Anki 😝 Quizlet is a great way to start using flashcards, but once I discovered Anki, I couldn't go back.
 
 ## Why Ankiport?
 
@@ -39,13 +35,9 @@ Like I said earlier, Quizlet is the standard way to make and share flashcards am
 
 ## Feature List
 
-### Current (0.1.0)
+### Current (0.1.5)
 
 Ankiport can currently only handle text flashcards. Quizlet sets with images will still be processed, but the image won't be included in the Anki deck. Same goes for audio - support for these is coming soon!
-
-#### Update: 1/1/18
-
-Woohoo! Ringing in the new year with some custom card styles! You can now change the font, font color, and font size for the Anki cards you'll be generating. Expect UI updates and more flexibility over styling in the future.
 
 ### Coming Soon (0.2.0)
 
