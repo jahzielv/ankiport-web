@@ -2,6 +2,7 @@
 
 <a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
 <a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/style-Prettier-blue.svg)</a>
+![license-badge](https://img.shields.io/github/license/jahzielv/ankiport-web.svg)
 
 An app that lets you convert from Quizlet to Anki.
 
