@@ -2,10 +2,10 @@
 
 ![version-badge](https://img.shields.io/github/release/jahzielv/ankiport-web.svg)
 <a href="https://travis-ci.org/jahzielv/ankiport-web">![ankiport-build](https://travis-ci.org/jahzielv/ankiport-web.svg?branch=master)</a>
-![web.dev performance](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Performance&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.performance&colorB=3740FF)
-![web.dev accessibility](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Accessibility&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.accessibility&colorB=3740FF)
-![web.dev Best Practices](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Best%20Practices&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.bestpractices&colorB=3740FF)
-![web.dev SEO](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20SEO&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.seo&colorB=3740FF)
+<a href="https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://ankiport.com">![web.dev performance](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Performance&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.performance&colorB=3740FF)</a>
+<a href="https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://ankiport.com">![web.dev accessibility](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Accessibility&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.accessibility&colorB=3740FF)</a>
+<a href="https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://ankiport.com">![web.dev Best Practices](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20Best%20Practices&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.bestpractices&colorB=3740FF)</a>
+<a href="https://lighthouse-dot-webdotdevsite.appspot.com/lh/html?url=https://ankiport.com">![web.dev SEO](https://img.shields.io/badge/dynamic/json.svg?label=web.dev%3A%20SEO&url=https%3A%2F%2Fscores-dev-227516.appspot.com%2Fscores%3FsiteURL%3Dhttps%3A%2F%2Fankiport.com&query=%24.seo&colorB=3740FF)</a>
 <a href="https://prettier.io/">![prettier-badge](https://img.shields.io/badge/style-Prettier-blue.svg)</a>
 ![license-badge](https://img.shields.io/github/license/jahzielv/ankiport-web.svg)
 
