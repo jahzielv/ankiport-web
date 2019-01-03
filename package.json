@@ -23,7 +23,7 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "start": "react-scripts build && serve -s build",
-        "deploy": "gcloud app deploy --project=ankiport-app"
+        "deploy": "react-scripts build && gcloud app deploy --project=ankiport-app"
     },
     "devDependencies": {}
 }
