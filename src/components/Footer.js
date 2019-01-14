@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { withStyles, Typography } from "@material-ui/core";
 
 const styles = theme => ({
@@ -31,7 +31,7 @@ const styles = theme => ({
 
 const Footer = ({ classes }) => {
     return (
-        <div>
+        <Fragment>
             <div className={classes.phantom} />
             <div className={classes.footer}>
                 <div className={classes.footerText}>
@@ -49,7 +49,7 @@ const Footer = ({ classes }) => {
                     </Typography>
                 </div>
             </div>
-        </div>
+        </Fragment>
     );
 };
 
