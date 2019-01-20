@@ -156,18 +156,12 @@ export class InputArea extends React.Component {
                 </Modal>
                 <Grid
                     container
-                    spacing={40}
+                    direction="row"
+                    justify="flex-start"
+                    alignItems="center"
                     style={{ paddingTop: "40px" }}
-                    direction="column"
                 >
-                    <Grid
-                        container
-                        item
-                        direction="row"
-                        justify="flex-start"
-                        alignItems="center"
-                        spacing={40}
-                    >
+                    <Grid item spacing={40} direction="column" alignItems="flex-start">
                         <TextField
                             id="url-field"
                             label="Quizlet Deck URL"
@@ -180,156 +174,163 @@ export class InputArea extends React.Component {
                                 this.setState({ id: e.target.value });
                             }}
                         />
-                        <div style={{ paddingLeft: "30px" }}>
-                            <Fab
-                                id="buttonPort"
-                                variant="extended"
-                                color="primary"
-                                size="large"
-                                onClick={this.deckButtonClick}
-                            >
-                                Make a deck!
-                            </Fab>
-                        </div>
+                        <ExpansionPanel style={{ maxWidth: "1000px" }}>
+                            <ExpansionPanelSummary>
+                                <Typography className={classes.heading}>
+                                    Customize your cards!
+                                </Typography>
+                            </ExpansionPanelSummary>
+                            <ExpansionPanelDetails>
+                                <Grid
+                                    container
+                                    direction="row"
+                                    justify="space-between"
+                                    spacing={16}
+                                >
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel htmlFor="usr-font">Font</InputLabel>
+                                        <Select
+                                            value={this.state.font}
+                                            onChange={this.handleChangeSelect}
+                                            inputProps={{
+                                                name: "font",
+                                                id: "usr-font"
+                                            }}
+                                        >
+                                            <MenuItem value="">
+                                                <em>Default</em>
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"times"}
+                                                style={{ fontFamily: "times" }}
+                                            >
+                                                Times New Roman
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"arial"}
+                                                style={{ fontFamily: "Arial" }}
+                                            >
+                                                Arial
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"courier"}
+                                                style={{ fontFamily: "Courier" }}
+                                            >
+                                                Courier
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
 
-                        <div style={{ paddingLeft: "30px" }}>
-                            <Button variant="text" onClick={this.handleModalOpen}>
-                                About
-                            </Button>
-                        </div>
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel htmlFor="usr-color">
+                                            Font Color
+                                        </InputLabel>
+                                        <Select
+                                            value={this.state.color}
+                                            onChange={this.handleChangeSelect}
+                                            inputProps={{
+                                                name: "color",
+                                                id: "usr-color"
+                                            }}
+                                        >
+                                            <MenuItem value="">
+                                                <em>Default</em>
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"blue"}
+                                                style={{ color: "blue" }}
+                                            >
+                                                Blue
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"green"}
+                                                style={{ color: "green" }}
+                                            >
+                                                Green
+                                            </MenuItem>
+                                            <MenuItem
+                                                value={"orange"}
+                                                style={{ color: "orange" }}
+                                            >
+                                                Orange
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+
+                                    <FormControl className={classes.formControl}>
+                                        <InputLabel htmlFor="usr-fontSize">
+                                            Font Size
+                                        </InputLabel>
+                                        <Select
+                                            value={this.state.fontSize}
+                                            onChange={this.handleChangeSelect}
+                                            inputProps={{
+                                                name: "fontSize",
+                                                id: "usr-fontSize"
+                                            }}
+                                        >
+                                            <MenuItem value="">
+                                                <em>Default</em>
+                                            </MenuItem>
+                                            <MenuItem value={10}>10</MenuItem>
+                                            <MenuItem value={20}>20</MenuItem>
+                                            <MenuItem value={30}>30</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                            </ExpansionPanelDetails>
+                        </ExpansionPanel>
                     </Grid>
-                    <Snackbar
-                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                        open={portErr}
-                        autoHideDuration={6000}
-                        onClose={this.handleClose}
-                        ContentProps={{ "aria-describedby": "porterr-msg" }}
-                        message={
-                            <span id="porterr-msg">
-                                We couldn't find that Quizlet{" "}
-                                <span role="img" aria-label="disappointed-face">
-                                    😔
-                                </span>
-                                Please try again!
-                            </span>
-                        }
-                    />
-                    <Snackbar
-                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-                        open={badUrl}
-                        autoHideDuration={6000}
-                        onClose={this.handleCloseUrl}
-                        ContentProps={{ "aria-describedby": "message-id" }}
-                        message={
-                            <span id="message-id">
-                                Make sure your URL is correct{" "}
-                                <span role="img" aria-label="eyes">
-                                    👀
-                                </span>
-                            </span>
-                        }
-                    />
-                    <ExpansionPanel style={{ maxWidth: "1000px" }}>
-                        <ExpansionPanelSummary>
-                            <Typography className={classes.heading}>
-                                Customize your cards!
-                            </Typography>
-                        </ExpansionPanelSummary>
-                        <ExpansionPanelDetails>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="space-between"
-                                spacing={16}
-                            >
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel htmlFor="usr-font">Font</InputLabel>
-                                    <Select
-                                        value={this.state.font}
-                                        onChange={this.handleChangeSelect}
-                                        inputProps={{ name: "font", id: "usr-font" }}
-                                    >
-                                        <MenuItem value="">
-                                            <em>Default</em>
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"times"}
-                                            style={{ fontFamily: "times" }}
-                                        >
-                                            Times New Roman
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"arial"}
-                                            style={{ fontFamily: "Arial" }}
-                                        >
-                                            Arial
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"courier"}
-                                            style={{ fontFamily: "Courier" }}
-                                        >
-                                            Courier
-                                        </MenuItem>
-                                    </Select>
-                                </FormControl>
 
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel htmlFor="usr-color">
-                                        Font Color
-                                    </InputLabel>
-                                    <Select
-                                        value={this.state.color}
-                                        onChange={this.handleChangeSelect}
-                                        inputProps={{ name: "color", id: "usr-color" }}
-                                    >
-                                        <MenuItem value="">
-                                            <em>Default</em>
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"blue"}
-                                            style={{ color: "blue" }}
-                                        >
-                                            Blue
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"green"}
-                                            style={{ color: "green" }}
-                                        >
-                                            Green
-                                        </MenuItem>
-                                        <MenuItem
-                                            value={"orange"}
-                                            style={{ color: "orange" }}
-                                        >
-                                            Orange
-                                        </MenuItem>
-                                    </Select>
-                                </FormControl>
+                    <div style={{ paddingLeft: "30px" }}>
+                        <Fab
+                            id="buttonPort"
+                            variant="extended"
+                            color="primary"
+                            size="large"
+                            onClick={this.deckButtonClick}
+                        >
+                            Make a deck!
+                        </Fab>
+                    </div>
 
-                                <FormControl className={classes.formControl}>
-                                    <InputLabel htmlFor="usr-fontSize">
-                                        Font Size
-                                    </InputLabel>
-                                    <Select
-                                        value={this.state.fontSize}
-                                        onChange={this.handleChangeSelect}
-                                        inputProps={{
-                                            name: "fontSize",
-                                            id: "usr-fontSize"
-                                        }}
-                                    >
-                                        <MenuItem value="">
-                                            <em>Default</em>
-                                        </MenuItem>
-                                        <MenuItem value={10}>10</MenuItem>
-                                        <MenuItem value={20}>20</MenuItem>
-                                        <MenuItem value={30}>30</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-                        </ExpansionPanelDetails>
-                    </ExpansionPanel>
+                    <div style={{ paddingLeft: "30px" }}>
+                        <Button variant="text" onClick={this.handleModalOpen}>
+                            About
+                        </Button>
+                    </div>
                 </Grid>
+                <Snackbar
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    open={portErr}
+                    autoHideDuration={6000}
+                    onClose={this.handleClose}
+                    ContentProps={{ "aria-describedby": "porterr-msg" }}
+                    message={
+                        <span id="porterr-msg">
+                            We couldn't find that Quizlet{" "}
+                            <span role="img" aria-label="disappointed-face">
+                                😔
+                            </span>
+                            Please try again!
+                        </span>
+                    }
+                />
+                <Snackbar
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    open={badUrl}
+                    autoHideDuration={6000}
+                    onClose={this.handleCloseUrl}
+                    ContentProps={{ "aria-describedby": "message-id" }}
+                    message={
+                        <span id="message-id">
+                            Make sure your URL is correct{" "}
+                            <span role="img" aria-label="eyes">
+                                👀
+                            </span>
+                        </span>
+                    }
+                />
             </Fragment>
         );
     }

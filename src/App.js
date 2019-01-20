@@ -4,6 +4,7 @@ import { CssBaseline, withStyles } from "@material-ui/core";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import "typeface-roboto";
 
 const styles = theme => ({
     main: {

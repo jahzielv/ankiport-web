@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { Typography, Grid } from "@material-ui/core";
-import aplogo from "../assets/aplogo.png";
+// import aplogo from "../assets/aplogo.png";
+import aplogo from "../assets/aplogo.webp";
 
 export const AboutSection = () => {
     return (
@@ -10,7 +11,10 @@ export const AboutSection = () => {
                 Ankiport
             </Typography>
             <Grid container direction="row">
-                <Typography variant="subtitle2">Version 0.0.4</Typography>
+                <img
+                    alt="Ankiport Version"
+                    src="https://img.shields.io/github/release/jahzielv/ankiport-web.svg"
+                />
                 <Typography variant="subtitle2" style={{ paddingLeft: "15px" }}>
                     Code hosted on{" "}
                     <a
