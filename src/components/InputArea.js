@@ -142,7 +142,6 @@ export class InputArea extends React.Component {
     };
 
     handleColorChange = color => {
-        console.log(color.hex);
         this.setState({ color: color.hex });
     };
 
