@@ -32,13 +32,16 @@ const styles = theme => ({
         padding: theme.spacing.unit * 4
     },
     heading: {
-        color: "blue"
+        color: theme.palette.primary.dark
     },
     formControl: {
         minWidth: "200px"
     },
     hexText: {
         minWidth: "100px"
+    },
+    labelText: {
+        color: theme.palette.primary.dark
     }
 });
 
@@ -70,7 +73,7 @@ export class InputArea extends React.Component {
         badUrl: false,
         modalOpen: false,
         color: "#fafafa",
-        font: "",
+        font: "roboto",
         fontSize: "20"
     };
 
@@ -181,7 +184,7 @@ export class InputArea extends React.Component {
                         />
                         <ExpansionPanel style={{ maxWidth: "1000px" }}>
                             <ExpansionPanelSummary>
-                                <Typography className={classes.heading}>
+                                <Typography variant="body1" className={classes.heading}>
                                     Customize your cards!
                                 </Typography>
                             </ExpansionPanelSummary>
@@ -190,10 +193,15 @@ export class InputArea extends React.Component {
                                     container
                                     direction="row"
                                     justify="space-between"
-                                    spacing={16}
+                                    spacing={8}
                                 >
                                     <FormControl className={classes.formControl}>
-                                        <InputLabel htmlFor="usr-font">Font</InputLabel>
+                                        <InputLabel
+                                            htmlFor="usr-font"
+                                            className={classes.labelText}
+                                        >
+                                            Font
+                                        </InputLabel>
                                         <Select
                                             value={this.state.font}
                                             onChange={this.handleChangeSelect}
@@ -201,8 +209,9 @@ export class InputArea extends React.Component {
                                                 name: "font",
                                                 id: "usr-font"
                                             }}
+                                            style={{ fontFamily: this.state.font }}
                                         >
-                                            <MenuItem value="">
+                                            <MenuItem value="sans-serif">
                                                 <em>Default</em>
                                             </MenuItem>
                                             <MenuItem
@@ -227,7 +236,10 @@ export class InputArea extends React.Component {
                                     </FormControl>
 
                                     <FormControl className={classes.formControl}>
-                                        <Typography variant="body1">
+                                        <Typography
+                                            variant="body1"
+                                            className={classes.labelText}
+                                        >
                                             Font Color
                                         </Typography>
                                         {/* <InputLabel htmlFor="usr-color">
@@ -302,6 +314,7 @@ export class InputArea extends React.Component {
                                                         fontSize: e.target.value
                                                     });
                                                 }}
+                                                className={classes.labelText}
                                             />
                                         </div>
                                     </FormControl>
