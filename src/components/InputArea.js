@@ -68,7 +68,6 @@ export class InputArea extends React.Component {
         portErr: false,
         badUrl: false,
         modalOpen: false,
-        hexColor: "",
         color: "",
         font: "",
         fontSize: ""
@@ -238,7 +237,7 @@ export class InputArea extends React.Component {
                                             </MenuItem>
                                             <MenuItem
                                                 value={"blue"}
-                                                style={{ color: "blue" }}
+                                                style={{ color: "1ED7C9" }}
                                             >
                                                 Blue
                                             </MenuItem>
