@@ -19,6 +19,7 @@ import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
 import PropTypes from "prop-types";
 import AboutSection from "./AboutSection";
+import ChromePicker from "react-color";
 
 const saveAs = require("file-saver");
 
@@ -68,9 +69,9 @@ export class InputArea extends React.Component {
         portErr: false,
         badUrl: false,
         modalOpen: false,
-        color: "",
+        color: "#fafafa",
         font: "",
-        fontSize: ""
+        fontSize: "20"
     };
 
     deckButtonClick = () => {
@@ -137,6 +138,11 @@ export class InputArea extends React.Component {
         this.setState({ [event.target.name]: event.target.value });
     };
 
+    handleColorChange = color => {
+        console.log(color.hex);
+        this.setState({ color: color.hex });
+    };
+
     render() {
         const { portErr, badUrl } = this.state;
         const { classes } = this.props;
@@ -160,7 +166,7 @@ export class InputArea extends React.Component {
                     alignItems="center"
                     style={{ paddingTop: "40px" }}
                 >
-                    <Grid item spacing={40} direction="column" alignItems="flex-start">
+                    <Grid item>
                         <TextField
                             id="url-field"
                             label="Quizlet Deck URL"
@@ -221,7 +227,10 @@ export class InputArea extends React.Component {
                                     </FormControl>
 
                                     <FormControl className={classes.formControl}>
-                                        <InputLabel htmlFor="usr-color">
+                                        <Typography variant="body1">
+                                            Font Color
+                                        </Typography>
+                                        {/* <InputLabel htmlFor="usr-color">
                                             Font Color
                                         </InputLabel>
                                         <Select
@@ -253,14 +262,18 @@ export class InputArea extends React.Component {
                                             >
                                                 Orange
                                             </MenuItem>
-                                        </Select>
+                                        </Select> */}
+                                        <ChromePicker
+                                            color={this.state.color}
+                                            onChangeComplete={this.handleColorChange}
+                                        />
                                     </FormControl>
 
                                     <FormControl className={classes.formControl}>
-                                        <InputLabel htmlFor="usr-fontSize">
+                                        {/*<InputLabel htmlFor="usr-fontSize">
                                             Font Size
                                         </InputLabel>
-                                        <Select
+                                         <Select
                                             value={this.state.fontSize}
                                             onChange={this.handleChangeSelect}
                                             inputProps={{
@@ -274,7 +287,23 @@ export class InputArea extends React.Component {
                                             <MenuItem value={10}>10</MenuItem>
                                             <MenuItem value={20}>20</MenuItem>
                                             <MenuItem value={30}>30</MenuItem>
-                                        </Select>
+                                        </Select> */}
+                                        {/* TODO: find a way to style these arrows! */}
+                                        <div style={{ paddingTop: "7px" }}>
+                                            <TextField
+                                                id="font-size"
+                                                variant="outlined"
+                                                type="number"
+                                                // number
+                                                label="Font Size"
+                                                value={this.state.fontSize}
+                                                onChange={e => {
+                                                    this.setState({
+                                                        fontSize: e.target.value
+                                                    });
+                                                }}
+                                            />
+                                        </div>
                                     </FormControl>
                                 </Grid>
                             </ExpansionPanelDetails>
