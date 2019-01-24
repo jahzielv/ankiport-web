@@ -72,7 +72,7 @@ export class InputArea extends React.Component {
         portErr: false,
         badUrl: false,
         modalOpen: false,
-        color: "#fafafa",
+        color: "#5FA9EC",
         font: "roboto",
         fontSize: "20"
     };
@@ -305,8 +305,7 @@ export class InputArea extends React.Component {
                                             <TextField
                                                 id="font-size"
                                                 variant="outlined"
-                                                type="number"
-                                                // number
+                                                type="number" // number
                                                 label="Font Size"
                                                 value={this.state.fontSize}
                                                 onChange={e => {
