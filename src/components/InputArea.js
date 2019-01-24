@@ -236,8 +236,8 @@ export class InputArea extends React.Component {
                                                 <em>Default</em>
                                             </MenuItem>
                                             <MenuItem
-                                                value={"blue"}
-                                                style={{ color: "1ED7C9" }}
+                                                value={"#1ED7C9"}
+                                                style={{ color: "blue" }}
                                             >
                                                 Blue
                                             </MenuItem>
