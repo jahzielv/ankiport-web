@@ -2,6 +2,15 @@
 
 This changelog tracks all changes and release for the Ankiport project. I'm following the [convention](https://keepachangelog.com/en/1.0.0/) created by [Oliver Lacan](https://olivierlacan.com/), as well as [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (hopefully? 😜)
 
+## 0.1.6 - 2019-01-24
+
+### Changed:
+
+-   Font colors can be selected from a proper color picker now!
+-   Font size dropdown changed to a text input for user flexibility
+-   Highlight colors changed
+-   Logo added to page
+
 ## 0.1.5 - 2019-01-20
 
 ### Changed:
