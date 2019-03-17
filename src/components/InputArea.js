@@ -36,12 +36,15 @@ const styles = theme => ({
         color: theme.palette.primary.dark
     },
     gridStyle: {
-        minWidth: "1000px",
-        paddingTop: "40px"
+        // minWidth: "1000px",
+        paddingTop: "40px",
+        paddingLeft: "25%",
+        paddingRight: "25%"
     },
     gridItem: {
         margin: "10px",
-        minWidth: "800px"
+        width: "inherit"
+        // minWidth: "800px"
     },
     gridButton: {
         margin: "10px"
