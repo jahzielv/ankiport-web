@@ -38,8 +38,8 @@ const styles = theme => ({
     gridStyle: {
         // minWidth: "1000px",
         paddingTop: "40px",
-        paddingLeft: "25%",
-        paddingRight: "25%"
+        paddingLeft: "20%",
+        paddingRight: "20%"
     },
     gridItem: {
         margin: "10px",
@@ -48,6 +48,9 @@ const styles = theme => ({
     },
     gridButton: {
         margin: "10px"
+    },
+    expGrid: {
+        width: "auto"
     }
 });
 
