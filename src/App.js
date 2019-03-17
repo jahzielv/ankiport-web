@@ -18,7 +18,7 @@ const styles = theme => ({
 const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
-        fontFamily: ["Questrial", "Arial", "sans-serif"].join(",")
+        fontFamily: ["Open Sans", "Arial", "sans-serif"].join(",")
     },
     palette: {
         primary: {
