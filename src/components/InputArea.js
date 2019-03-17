@@ -42,6 +42,17 @@ const styles = theme => ({
     },
     labelText: {
         color: theme.palette.primary.dark
+    },
+    gridStyle: {
+        minWidth: "1000px",
+        paddingTop: "40px"
+    },
+    gridItem: {
+        margin: "10px",
+        minWidth: "800px"
+    },
+    gridButton: {
+        margin: "10px"
     }
 });
 
@@ -163,165 +174,123 @@ export class InputArea extends React.Component {
                 </Modal>
                 <Grid
                     container
-                    direction="row"
-                    justify="flex-start"
+                    direction="column"
+                    justify="center"
                     alignItems="center"
-                    style={{ paddingTop: "40px" }}
+                    // alignContent="center"
+                    className={classes.gridStyle}
                 >
-                    <Grid item>
-                        <TextField
-                            id="url-field"
-                            label="Quizlet Deck URL"
-                            placeholder=""
-                            margin="normal"
-                            type="url"
-                            variant="outlined"
-                            style={{ width: "1000px" }}
-                            onChange={e => {
-                                this.setState({ id: e.target.value });
-                            }}
-                        />
-                        <ExpansionPanel style={{ maxWidth: "1000px" }}>
-                            <ExpansionPanelSummary>
-                                <Typography variant="body1" className={classes.heading}>
-                                    Customize your cards!
-                                </Typography>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails>
-                                <Grid
-                                    container
-                                    direction="row"
-                                    justify="space-between"
-                                    spacing={8}
-                                >
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel
-                                            htmlFor="usr-font"
-                                            className={classes.labelText}
+                    {/* <Grid item> */}
+                    <TextField
+                        id="url-field"
+                        label="Quizlet Deck URL"
+                        placeholder=""
+                        margin="normal"
+                        type="url"
+                        variant="outlined"
+                        onChange={e => {
+                            this.setState({ id: e.target.value });
+                        }}
+                        className={classes.gridItem}
+                    />
+                    <ExpansionPanel className={classes.gridItem}>
+                        <ExpansionPanelSummary>
+                            <Typography variant="body1" className={classes.heading}>
+                                Customize your cards!
+                            </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="space-between"
+                                spacing={8}
+                            >
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel
+                                        htmlFor="usr-font"
+                                        className={classes.labelText}
+                                    >
+                                        Font
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.font}
+                                        onChange={this.handleChangeSelect}
+                                        inputProps={{
+                                            name: "font",
+                                            id: "usr-font"
+                                        }}
+                                        style={{ fontFamily: this.state.font }}
+                                    >
+                                        <MenuItem value="sans-serif">
+                                            <em>Default</em>
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"times"}
+                                            style={{ fontFamily: "times" }}
                                         >
-                                            Font
-                                        </InputLabel>
-                                        <Select
-                                            value={this.state.font}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "font",
-                                                id: "usr-font"
-                                            }}
-                                            style={{ fontFamily: this.state.font }}
+                                            Times New Roman
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"arial"}
+                                            style={{ fontFamily: "Arial" }}
                                         >
-                                            <MenuItem value="sans-serif">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"times"}
-                                                style={{ fontFamily: "times" }}
-                                            >
-                                                Times New Roman
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"arial"}
-                                                style={{ fontFamily: "Arial" }}
-                                            >
-                                                Arial
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"courier"}
-                                                style={{ fontFamily: "Courier" }}
-                                            >
-                                                Courier
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
+                                            Arial
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"courier"}
+                                            style={{ fontFamily: "Courier" }}
+                                        >
+                                            Courier
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
 
-                                    <FormControl className={classes.formControl}>
-                                        <Typography
-                                            variant="body1"
-                                            className={classes.labelText}
-                                        >
-                                            Font Color
-                                        </Typography>
-                                        {/* <InputLabel htmlFor="usr-color">
-                                            Font Color
-                                        </InputLabel>
-                                        <Select
-                                            value={this.state.color}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "color",
-                                                id: "usr-color"
-                                            }}
-                                        >
-                                            <MenuItem value="">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"#1ED7C9"}
-                                                style={{ color: "blue" }}
-                                            >
-                                                Blue
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"green"}
-                                                style={{ color: "green" }}
-                                            >
-                                                Green
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"orange"}
-                                                style={{ color: "orange" }}
-                                            >
-                                                Orange
-                                            </MenuItem>
-                                        </Select> */}
-                                        <ChromePicker
-                                            color={this.state.color}
-                                            onChangeComplete={this.handleColorChange}
-                                        />
-                                    </FormControl>
+                                <FormControl className={classes.formControl}>
+                                    <Typography
+                                        variant="body1"
+                                        className={classes.labelText}
+                                    >
+                                        Font Color
+                                    </Typography>
 
-                                    <FormControl className={classes.formControl}>
-                                        {/*<InputLabel htmlFor="usr-fontSize">
-                                            Font Size
-                                        </InputLabel>
-                                         <Select
+                                    <ChromePicker
+                                        color={this.state.color}
+                                        onChangeComplete={this.handleColorChange}
+                                    />
+                                </FormControl>
+
+                                <FormControl className={classes.formControl}>
+                                    {/* TODO: find a way to style these arrows! */}
+                                    <div style={{ paddingTop: "7px" }}>
+                                        <TextField
+                                            id="font-size"
+                                            variant="outlined"
+                                            type="number" // number
+                                            label="Font Size"
                                             value={this.state.fontSize}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "fontSize",
-                                                id: "usr-fontSize"
+                                            onChange={e => {
+                                                this.setState({
+                                                    fontSize: e.target.value
+                                                });
                                             }}
-                                        >
-                                            <MenuItem value="">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>10</MenuItem>
-                                            <MenuItem value={20}>20</MenuItem>
-                                            <MenuItem value={30}>30</MenuItem>
-                                        </Select> */}
-                                        {/* TODO: find a way to style these arrows! */}
-                                        <div style={{ paddingTop: "7px" }}>
-                                            <TextField
-                                                id="font-size"
-                                                variant="outlined"
-                                                type="number" // number
-                                                label="Font Size"
-                                                value={this.state.fontSize}
-                                                onChange={e => {
-                                                    this.setState({
-                                                        fontSize: e.target.value
-                                                    });
-                                                }}
-                                                className={classes.labelText}
-                                            />
-                                        </div>
-                                    </FormControl>
-                                </Grid>
-                            </ExpansionPanelDetails>
-                        </ExpansionPanel>
-                    </Grid>
+                                            className={classes.labelText}
+                                        />
+                                    </div>
+                                </FormControl>
+                            </Grid>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
 
-                    <div style={{ paddingLeft: "30px" }}>
+                    {/* <Grid
+                        container
+                        item
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                        className={classes.gridItem + " " + classes.gridStyle}
+                    > */}
+                    <div className={classes.gridButton}>
                         <Fab
                             id="buttonPort"
                             variant="extended"
@@ -333,12 +302,14 @@ export class InputArea extends React.Component {
                         </Fab>
                     </div>
 
-                    <div style={{ paddingLeft: "30px" }}>
+                    <div className={classes.gridButton}>
                         <Button variant="text" onClick={this.handleModalOpen}>
                             About
                         </Button>
                     </div>
+                    {/* </Grid> */}
                 </Grid>
+                {/* </Grid> */}
                 <Snackbar
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                     open={portErr}
