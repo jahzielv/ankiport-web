@@ -36,7 +36,7 @@ const Footer = ({ classes }) => {
             <div className={classes.footer}>
                 <div className={classes.footerText}>
                     <Typography>
-                        Made with &#10084; by{" "}
+                        Made with 🍞by{" "}
                         <a
                             className={classes.footerLink}
                             target="_blank"

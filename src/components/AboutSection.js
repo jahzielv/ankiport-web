@@ -54,9 +54,9 @@ export const AboutSection = () => {
             <Typography variant="body1" component={"span"}>
                 <p>Turn Quizlets into Anki decks.</p>
                 <p>
-                    Just type in a Quizlet's URL, click <code>Make a Deck!</code>, and
-                    it'll download an Anki deck with all the text content transferred
-                    over.
+                    First, type in a Quizlet's URL. Next, customize your Anki cards.
+                    Click <code>Make a Deck!</code>, when you're done, and Ankiport will
+                    convert that Quizlet into an Anki deck. Start studying today!
                 </p>
             </Typography>
 
@@ -91,8 +91,8 @@ export const AboutSection = () => {
                     <li>Android and iOS apps</li>
                 </ul>
             </Typography>
-            <Typography>
-                Hopefully Ankiport makes the transition from Quizlet to Anki a little
+            <Typography variant="body1">
+                Hopefully Ankiport makes transitioning from Quizlet to Anki a little
                 easier!
             </Typography>
         </Fragment>

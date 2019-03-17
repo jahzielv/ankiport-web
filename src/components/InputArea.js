@@ -19,6 +19,8 @@ import fetch from "node-fetch";
 import PropTypes from "prop-types";
 import AboutSection from "./AboutSection";
 import ChromePicker from "react-color";
+import { CompactPicker, BlockPicker } from "react-color";
+import MediaQuery from "react-responsive";
 
 const saveAs = require("file-saver");
 
@@ -154,8 +156,9 @@ export class InputArea extends React.Component {
                     direction="column"
                     justify="center"
                     alignItems="center"
-                    // alignContent="center"
-                    className={classes.gridStyle}
+                    className={
+                        classes.gridStyle // alignContent="center"
+                    }
                 >
                     {/* <Grid item> */}
                     <TextField
@@ -180,10 +183,15 @@ export class InputArea extends React.Component {
                             <Grid
                                 container
                                 direction="row"
-                                justify="space-between"
+                                justify="center"
+                                alignItems="center"
                                 spacing={8}
                             >
-                                <FormControl className={classes.formControl}>
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
+                                >
                                     <InputLabel
                                         htmlFor="usr-font"
                                         className={classes.labelText}
@@ -193,10 +201,7 @@ export class InputArea extends React.Component {
                                     <Select
                                         value={this.state.font}
                                         onChange={this.handleChangeSelect}
-                                        inputProps={{
-                                            name: "font",
-                                            id: "usr-font"
-                                        }}
+                                        inputProps={{ name: "font", id: "usr-font" }}
                                         style={{ fontFamily: this.state.font }}
                                     >
                                         <MenuItem value="sans-serif">
@@ -223,7 +228,11 @@ export class InputArea extends React.Component {
                                     </Select>
                                 </FormControl>
 
-                                <FormControl className={classes.formControl}>
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
+                                >
                                     <Typography
                                         variant="body1"
                                         className={classes.labelText}
@@ -231,21 +240,37 @@ export class InputArea extends React.Component {
                                         Font Color
                                     </Typography>
 
-                                    <ChromePicker
-                                        color={this.state.color}
-                                        onChangeComplete={this.handleColorChange}
-                                    />
+                                    <MediaQuery query="(min-device-width: 1224px)">
+                                        <CompactPicker
+                                            color={this.state.color}
+                                            onChangeComplete={this.handleColorChange}
+                                        />
+                                    </MediaQuery>
+                                    <MediaQuery query="(max-device-width: 1224px)">
+                                        <BlockPicker
+                                            color={this.state.color}
+                                            onChangeComplete={
+                                                this.state.handleColorChange
+                                            }
+                                        />
+                                    </MediaQuery>
                                 </FormControl>
 
-                                <FormControl className={classes.formControl}>
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
+                                >
                                     {/* TODO: find a way to style these arrows! */}
                                     <div style={{ paddingTop: "7px" }}>
                                         <TextField
                                             id="font-size"
                                             variant="outlined"
-                                            type="number" // number
+                                            type="number"
                                             label="Font Size"
-                                            value={this.state.fontSize}
+                                            value={
+                                                this.state.fontSize // number
+                                            }
                                             onChange={e => {
                                                 this.setState({
                                                     fontSize: e.target.value
