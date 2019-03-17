@@ -3,7 +3,6 @@ import { Grid } from "@material-ui/core";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import AnkiHeader from "../components/AnkiHeader";
 import Input from "../components/InputArea";
 
 const styles = {
@@ -22,7 +21,6 @@ function HomePage(props) {
 
     return (
         <Grid container className={classNames(classes.root)}>
-            <AnkiHeader />
             <Input />
         </Grid>
     );

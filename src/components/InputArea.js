@@ -5,7 +5,6 @@ import {
     TextField,
     Snackbar,
     Button,
-    Modal,
     ExpansionPanel,
     ExpansionPanelDetails,
     ExpansionPanelSummary,
@@ -24,13 +23,6 @@ import ChromePicker from "react-color";
 const saveAs = require("file-saver");
 
 const styles = theme => ({
-    paper: {
-        position: "relative",
-        width: theme.spacing.unit * 130,
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4
-    },
     heading: {
         color: theme.palette.primary.dark
     },
@@ -55,16 +47,6 @@ const styles = theme => ({
         margin: "10px"
     }
 });
-
-function getModalStyle() {
-    return {
-        top: "50%",
-        left: "50%",
-        transform: `translate(-50%, -50%)`,
-        maxHeight: "100%",
-        overflow: "scroll"
-    };
-}
 
 function createBody(values) {
     let reqBody = [];
@@ -161,17 +143,6 @@ export class InputArea extends React.Component {
         const { classes } = this.props;
         return (
             <Fragment>
-                <Modal
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                    open={this.state.modalOpen}
-                    onClose={this.handleModalClose}
-                    style={{ overflow: "scroll" }}
-                >
-                    <div style={getModalStyle()} className={classes.paper}>
-                        <AboutSection />
-                    </div>
-                </Modal>
                 <Grid
                     container
                     direction="column"
@@ -282,14 +253,6 @@ export class InputArea extends React.Component {
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
 
-                    {/* <Grid
-                        container
-                        item
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                        className={classes.gridItem + " " + classes.gridStyle}
-                    > */}
                     <div className={classes.gridButton}>
                         <Fab
                             id="buttonPort"
@@ -301,15 +264,7 @@ export class InputArea extends React.Component {
                             Make a deck!
                         </Fab>
                     </div>
-
-                    <div className={classes.gridButton}>
-                        <Button variant="text" onClick={this.handleModalOpen}>
-                            About
-                        </Button>
-                    </div>
-                    {/* </Grid> */}
                 </Grid>
-                {/* </Grid> */}
                 <Snackbar
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                     open={portErr}
