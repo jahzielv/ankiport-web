@@ -1,7 +1,5 @@
 import React, { Fragment } from "react";
 import { Typography, Grid } from "@material-ui/core";
-// import aplogo from "../assets/aplogo.png";
-import aplogo from "../assets/aplogo.webp";
 
 export const AboutSection = () => {
     return (

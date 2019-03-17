@@ -1,6 +1,5 @@
 import React from "react";
-import { Grid, Typography, withStyles, Modal, Button } from "@material-ui/core";
-import aplogo from "../assets/aplogo.webp";
+import { withStyles, Modal, Button } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import PropTypes from "prop-types";
 import AboutSection from "./AboutSection";

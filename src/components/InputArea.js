@@ -4,7 +4,6 @@ import {
     Grid,
     TextField,
     Snackbar,
-    Button,
     ExpansionPanel,
     ExpansionPanelDetails,
     ExpansionPanelSummary,
@@ -17,8 +16,6 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
 import PropTypes from "prop-types";
-import AboutSection from "./AboutSection";
-import ChromePicker from "react-color";
 import { CompactPicker, BlockPicker } from "react-color";
 import MediaQuery from "react-responsive";
 
