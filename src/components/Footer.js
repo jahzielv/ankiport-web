@@ -36,7 +36,11 @@ const Footer = ({ classes }) => {
             <div className={classes.footer}>
                 <div className={classes.footerText}>
                     <Typography>
-                        Made with &#10084; by{" "}
+                        Made with{" "}
+                        <span role="img" aria-label="Bread Emoji">
+                            🍞
+                        </span>
+                        by{" "}
                         <a
                             className={classes.footerLink}
                             target="_blank"

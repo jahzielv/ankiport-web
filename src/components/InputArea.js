@@ -4,8 +4,6 @@ import {
     Grid,
     TextField,
     Snackbar,
-    Button,
-    Modal,
     ExpansionPanel,
     ExpansionPanelDetails,
     ExpansionPanelSummary,
@@ -18,19 +16,12 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import fetch from "node-fetch";
 import PropTypes from "prop-types";
-import AboutSection from "./AboutSection";
-import ChromePicker from "react-color";
+import { CompactPicker, BlockPicker } from "react-color";
+import MediaQuery from "react-responsive";
 
 const saveAs = require("file-saver");
 
 const styles = theme => ({
-    paper: {
-        position: "relative",
-        width: theme.spacing.unit * 130,
-        backgroundColor: theme.palette.background.paper,
-        boxShadow: theme.shadows[5],
-        padding: theme.spacing.unit * 4
-    },
     heading: {
         color: theme.palette.primary.dark
     },
@@ -42,18 +33,25 @@ const styles = theme => ({
     },
     labelText: {
         color: theme.palette.primary.dark
+    },
+    gridStyle: {
+        // minWidth: "1000px",
+        paddingTop: "40px",
+        paddingLeft: "20%",
+        paddingRight: "20%"
+    },
+    gridItem: {
+        margin: "10px",
+        width: "inherit"
+        // minWidth: "800px"
+    },
+    gridButton: {
+        margin: "10px"
+    },
+    expGrid: {
+        width: "auto"
     }
 });
-
-function getModalStyle() {
-    return {
-        top: "50%",
-        left: "50%",
-        transform: `translate(-50%, -50%)`,
-        maxHeight: "100%",
-        overflow: "scroll"
-    };
-}
 
 function createBody(values) {
     let reqBody = [];
@@ -150,178 +148,140 @@ export class InputArea extends React.Component {
         const { classes } = this.props;
         return (
             <Fragment>
-                <Modal
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                    open={this.state.modalOpen}
-                    onClose={this.handleModalClose}
-                    style={{ overflow: "scroll" }}
-                >
-                    <div style={getModalStyle()} className={classes.paper}>
-                        <AboutSection />
-                    </div>
-                </Modal>
                 <Grid
                     container
-                    direction="row"
-                    justify="flex-start"
+                    direction="column"
+                    justify="center"
                     alignItems="center"
-                    style={{ paddingTop: "40px" }}
+                    className={
+                        classes.gridStyle // alignContent="center"
+                    }
                 >
-                    <Grid item>
-                        <TextField
-                            id="url-field"
-                            label="Quizlet Deck URL"
-                            placeholder=""
-                            margin="normal"
-                            type="url"
-                            variant="outlined"
-                            style={{ width: "1000px" }}
-                            onChange={e => {
-                                this.setState({ id: e.target.value });
-                            }}
-                        />
-                        <ExpansionPanel style={{ maxWidth: "1000px" }}>
-                            <ExpansionPanelSummary>
-                                <Typography variant="body1" className={classes.heading}>
-                                    Customize your cards!
-                                </Typography>
-                            </ExpansionPanelSummary>
-                            <ExpansionPanelDetails>
-                                <Grid
-                                    container
-                                    direction="row"
-                                    justify="space-between"
-                                    spacing={8}
+                    {/* <Grid item> */}
+                    <TextField
+                        id="url-field"
+                        label="Quizlet Deck URL"
+                        placeholder=""
+                        margin="normal"
+                        type="url"
+                        variant="outlined"
+                        onChange={e => {
+                            this.setState({ id: e.target.value });
+                        }}
+                        className={classes.gridItem}
+                    />
+                    <ExpansionPanel className={classes.gridItem}>
+                        <ExpansionPanelSummary>
+                            <Typography variant="body1" className={classes.heading}>
+                                Customize your cards!
+                            </Typography>
+                        </ExpansionPanelSummary>
+                        <ExpansionPanelDetails>
+                            <Grid
+                                container
+                                direction="row"
+                                justify="center"
+                                alignItems="center"
+                                spacing={8}
+                            >
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
                                 >
-                                    <FormControl className={classes.formControl}>
-                                        <InputLabel
-                                            htmlFor="usr-font"
-                                            className={classes.labelText}
+                                    <InputLabel
+                                        htmlFor="usr-font"
+                                        className={classes.labelText}
+                                    >
+                                        Font
+                                    </InputLabel>
+                                    <Select
+                                        value={this.state.font}
+                                        onChange={this.handleChangeSelect}
+                                        inputProps={{ name: "font", id: "usr-font" }}
+                                        style={{ fontFamily: this.state.font }}
+                                    >
+                                        <MenuItem value="sans-serif">
+                                            <em>Default</em>
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"times"}
+                                            style={{ fontFamily: "times" }}
                                         >
-                                            Font
-                                        </InputLabel>
-                                        <Select
-                                            value={this.state.font}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "font",
-                                                id: "usr-font"
-                                            }}
-                                            style={{ fontFamily: this.state.font }}
+                                            Times New Roman
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"arial"}
+                                            style={{ fontFamily: "Arial" }}
                                         >
-                                            <MenuItem value="sans-serif">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"times"}
-                                                style={{ fontFamily: "times" }}
-                                            >
-                                                Times New Roman
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"arial"}
-                                                style={{ fontFamily: "Arial" }}
-                                            >
-                                                Arial
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"courier"}
-                                                style={{ fontFamily: "Courier" }}
-                                            >
-                                                Courier
-                                            </MenuItem>
-                                        </Select>
-                                    </FormControl>
+                                            Arial
+                                        </MenuItem>
+                                        <MenuItem
+                                            value={"courier"}
+                                            style={{ fontFamily: "Courier" }}
+                                        >
+                                            Courier
+                                        </MenuItem>
+                                    </Select>
+                                </FormControl>
 
-                                    <FormControl className={classes.formControl}>
-                                        <Typography
-                                            variant="body1"
-                                            className={classes.labelText}
-                                        >
-                                            Font Color
-                                        </Typography>
-                                        {/* <InputLabel htmlFor="usr-color">
-                                            Font Color
-                                        </InputLabel>
-                                        <Select
-                                            value={this.state.color}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "color",
-                                                id: "usr-color"
-                                            }}
-                                        >
-                                            <MenuItem value="">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"#1ED7C9"}
-                                                style={{ color: "blue" }}
-                                            >
-                                                Blue
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"green"}
-                                                style={{ color: "green" }}
-                                            >
-                                                Green
-                                            </MenuItem>
-                                            <MenuItem
-                                                value={"orange"}
-                                                style={{ color: "orange" }}
-                                            >
-                                                Orange
-                                            </MenuItem>
-                                        </Select> */}
-                                        <ChromePicker
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
+                                >
+                                    <Typography
+                                        variant="body1"
+                                        className={classes.labelText}
+                                    >
+                                        Font Color
+                                    </Typography>
+
+                                    <MediaQuery query="(min-device-width: 1224px)">
+                                        <CompactPicker
                                             color={this.state.color}
                                             onChangeComplete={this.handleColorChange}
                                         />
-                                    </FormControl>
+                                    </MediaQuery>
+                                    <MediaQuery query="(max-device-width: 1224px)">
+                                        <BlockPicker
+                                            color={this.state.color}
+                                            onChangeComplete={
+                                                this.state.handleColorChange
+                                            }
+                                        />
+                                    </MediaQuery>
+                                </FormControl>
 
-                                    <FormControl className={classes.formControl}>
-                                        {/*<InputLabel htmlFor="usr-fontSize">
-                                            Font Size
-                                        </InputLabel>
-                                         <Select
-                                            value={this.state.fontSize}
-                                            onChange={this.handleChangeSelect}
-                                            inputProps={{
-                                                name: "fontSize",
-                                                id: "usr-fontSize"
+                                <FormControl
+                                    className={
+                                        classes.formControl + " " + classes.gridItem
+                                    }
+                                >
+                                    {/* TODO: find a way to style these arrows! */}
+                                    <div style={{ paddingTop: "7px" }}>
+                                        <TextField
+                                            id="font-size"
+                                            variant="outlined"
+                                            type="number"
+                                            label="Font Size"
+                                            value={
+                                                this.state.fontSize // number
+                                            }
+                                            onChange={e => {
+                                                this.setState({
+                                                    fontSize: e.target.value
+                                                });
                                             }}
-                                        >
-                                            <MenuItem value="">
-                                                <em>Default</em>
-                                            </MenuItem>
-                                            <MenuItem value={10}>10</MenuItem>
-                                            <MenuItem value={20}>20</MenuItem>
-                                            <MenuItem value={30}>30</MenuItem>
-                                        </Select> */}
-                                        {/* TODO: find a way to style these arrows! */}
-                                        <div style={{ paddingTop: "7px" }}>
-                                            <TextField
-                                                id="font-size"
-                                                variant="outlined"
-                                                type="number" // number
-                                                label="Font Size"
-                                                value={this.state.fontSize}
-                                                onChange={e => {
-                                                    this.setState({
-                                                        fontSize: e.target.value
-                                                    });
-                                                }}
-                                                className={classes.labelText}
-                                            />
-                                        </div>
-                                    </FormControl>
-                                </Grid>
-                            </ExpansionPanelDetails>
-                        </ExpansionPanel>
-                    </Grid>
+                                            className={classes.labelText}
+                                        />
+                                    </div>
+                                </FormControl>
+                            </Grid>
+                        </ExpansionPanelDetails>
+                    </ExpansionPanel>
 
-                    <div style={{ paddingLeft: "30px" }}>
+                    <div className={classes.gridButton}>
                         <Fab
                             id="buttonPort"
                             variant="extended"
@@ -331,12 +291,6 @@ export class InputArea extends React.Component {
                         >
                             Make a deck!
                         </Fab>
-                    </div>
-
-                    <div style={{ paddingLeft: "30px" }}>
-                        <Button variant="text" onClick={this.handleModalOpen}>
-                            About
-                        </Button>
                     </div>
                 </Grid>
                 <Snackbar

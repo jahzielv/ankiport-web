@@ -1,6 +1,6 @@
 {
     "name": "ankiport",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "private": true,
     "homepage": "https://ankiport-app.appspot.com/",
     "dependencies": {
@@ -15,6 +15,7 @@
         "react": "^16.5.2",
         "react-color": "^2.17.0",
         "react-dom": "^16.5.2",
+        "react-responsive": "^6.1.1",
         "react-scripts": "1.1.5",
         "serve": "^10.1.1",
         "typeface-roboto": "^0.0.54"

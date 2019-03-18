@@ -2,6 +2,13 @@
 
 This changelog tracks all changes and release for the Ankiport project. I'm following the [convention](https://keepachangelog.com/en/1.0.0/) created by [Oliver Lacan](https://olivierlacan.com/), as well as [Semantic Versioning](https://semver.org/spec/v2.0.0.html) (hopefully? 😜)
 
+## 0.1.7 - 2019-03-17
+
+### Changed:
+
+-   UI overhaul! Toolbar added, new font, SVG logo
+-   App is now responsive!
+
 ## 0.1.6 - 2019-01-24
 
 ### Changed:
