@@ -1,3 +1,5 @@
+# NOTE: ankiport.com has been taken offline. Quizlet sadly closed down their public API, so ankiport can no longer function. Thanks for using the app, and I hope it helped!
+
 <h1><a href="https://ankiport-app.appspot.com/"><img src="./src/assets/aplogo.png" alt="ankiport logo" width="100"/></a>Ankiport</h1>
 
 ![version-badge](https://img.shields.io/github/release/jahzielv/ankiport-web.svg)
